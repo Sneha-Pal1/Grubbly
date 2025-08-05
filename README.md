@@ -37,14 +37,11 @@ Grubbly is a modern and responsive **food delivery web application** built with 
 1. Clone the Repository
 bash
 git clone https://github.com/Sneha-Pal1/grubbly.git
+
 cd grubbly
-2. Backend Setup
-bash
-cd backend
+2. Backend Setup: bash cd backend
 npm install
 npm run dev
-3. Frontend Setup
-bash
-cd frontend
+3. Frontend Setup: bash cd frontend
 npm install
 npm start
