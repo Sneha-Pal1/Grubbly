@@ -28,3 +28,21 @@ Grubbly is a modern and responsive **food delivery web application** built with 
 * **Authentication:** JWT, Role-based Auth
 * **Payment Integration:** Razorpay 
 * **Others:** REST APIs, Responsive Design, Toast Alerts
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/Sneha-Pal1/grubbly.git
+cd grubbly
+
+2. Backend Setup
+cd backend
+npm install
+npm run dev
+3. Frontend Setup
+cd frontend
+npm install
+npm start
