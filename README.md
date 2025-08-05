@@ -22,13 +22,9 @@ Grubbly is a modern and responsive **food delivery web application** built with 
 
 ## 🧰 Tech Stack
 
- **MongoDB** | Database for orders, users, and food items 
- **Express.js** | Backend routing and API structure 
- **React.js** | Frontend user interface 
- **Node.js** | Backend server 
- **JWT** | Authentication (Login/Register) 
- **Multer / Cloudinary** | Image uploading 
- **Tailwind CSS / CSS Modules** | Styling 
-
-
-
+* **Frontend:** React, Tailwind CSS, Axios
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **Authentication:** JWT, Role-based Auth
+* **Payment Integration:** Razorpay 
+* **Others:** REST APIs, Responsive Design, Toast Alerts
