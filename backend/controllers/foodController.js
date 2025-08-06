@@ -1,5 +1,5 @@
-import foodModel from "../models/foodModel";
-import fs from "fs";
+const foodModel = require("../models/foodModel");
+const fs = require("fs");
 
 //add food item
 const addFood = async (req, res) => {
@@ -21,4 +21,4 @@ const addFood = async (req, res) => {
   }
 };
 
-export { addFood };
+module.exports = { addFood };

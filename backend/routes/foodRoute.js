@@ -1,5 +1,5 @@
 const express = require("express");
-import { addFood } from "../controllers/foodController";
+const { addFood } = require("../controllers/foodController");
 const multer = require("multer");
 
 const foodRouter = express.Router();
@@ -15,4 +15,4 @@ const upload = multer({ storage: storage });
 
 foodRouter.post("/add", upload.single("image"), addFood);
 
-export default foodRouter;
+module.exports = foodRouter;
