@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import sidebar from "./components/sidebar/sidebar";
+import Sidebar from "./components/sidebar/sidebar";
 
 const App = () => {
   return (
@@ -8,7 +8,7 @@ const App = () => {
       <Navbar />
       <hr />
       <div className="app-content">
-        <sidebar />
+        <Sidebar />
       </div>
     </div>
   );

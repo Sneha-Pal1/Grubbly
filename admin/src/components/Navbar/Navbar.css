@@ -2,18 +2,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 20px;
-  background: white;
+  padding: 8px 4%;
 }
 
-.navbar img.logo {
-  height: 50px; /* adjust as needed */
-  width: auto;
+.navbar .logoo {
+  width: max(10%, 80px);
 }
 
-.navbar img.profile {
-  height: 50px; /* adjust as needed */
-  width: 50px;
-  object-fit: cover;
-  border-radius: 50%;
+.navbar .profile {
+  width: 40px;
 }
