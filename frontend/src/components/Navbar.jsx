@@ -8,6 +8,7 @@ import { StoreContext } from "../context/StoreContext";
 import { useContext } from "react";
 import { assets } from "../frontend_assets/assets";
 import catlogo from "../frontend_assets/catlogo.png";
+import profile_icon from "../frontend_assets/profile_icon.png";
 import bag_icon from "../frontend_assets/bag_icon.png";
 import logout_icon from "../frontend_assets/logout_icon.png";
 
@@ -71,8 +72,8 @@ const Navbar = ({ setShowLogin }) => {
           <button onClick={() => setShowLogin(true)}>sign in</button>
         ) : (
           <div className="navbar-profile">
-            <img src={catlogo} alt="" />
-            <ul className="nav-profile-dropdown">
+            <img src={profile_icon} alt="" />
+            <ul className="navbar-profile-dropdown">
               <li>
                 <img src={bag_icon} alt="" />
                 <p>Orders</p>
