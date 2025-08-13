@@ -1,3 +1,4 @@
+import catlogo from "./catlogo.png";
 import basket_icon from "./basket_icon.png";
 import logo from "./logo.png";
 import header_img from "./header_img.png";

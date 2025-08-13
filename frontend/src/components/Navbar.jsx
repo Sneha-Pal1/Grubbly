@@ -3,14 +3,26 @@ import "./Navbar.css";
 import logoo from "../frontend_assets/logoo.png";
 import search_icon from "../frontend_assets/search_icon.png";
 import basket_icon from "../frontend_assets/basket_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { StoreContext } from "../context/StoreContext";
 import { useContext } from "react";
+import { assets } from "../frontend_assets/assets";
+import catlogo from "../frontend_assets/catlogo.png";
+import bag_icon from "../frontend_assets/bag_icon.png";
+import logout_icon from "../frontend_assets/logout_icon.png";
 
 const Navbar = ({ setShowLogin }) => {
   const [menu, setMenu] = useState("menu");
 
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/");
+  };
 
   return (
     <div className="navbar">
@@ -55,7 +67,24 @@ const Navbar = ({ setShowLogin }) => {
           </Link>
           <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
         </div>
-        <button onClick={() => setShowLogin(true)}>sign in</button>
+        {!token ? (
+          <button onClick={() => setShowLogin(true)}>sign in</button>
+        ) : (
+          <div className="navbar-profile">
+            <img src={catlogo} alt="" />
+            <ul className="nav-profile-dropdown">
+              <li>
+                <img src={bag_icon} alt="" />
+                <p>Orders</p>
+              </li>
+              <hr />
+              <li onClick={logout}>
+                <img src={logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
