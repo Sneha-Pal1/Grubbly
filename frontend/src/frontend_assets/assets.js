@@ -69,6 +69,32 @@ import greek_salad from "./greek_salad.jpg";
 import Grilled_chicken_sandwich from "./Grilled_chicken_sandwich.jpg";
 import Grilled_veg_sandwich from "./Grilled_veg_sandwich.jpg";
 import ramen from "./ramen.jpg";
+import AlfredoPasta from "./AlfredoPasta.png";
+import BlueberryLayerCake from "./BlueberryLayerCake.png";
+import BrownRiceBowl from "./BrownRiceBowl.png";
+import caeserSalad from "./caeserSalad.jpg";
+import cauliflowerChickpeaSalad from "./cauliflowerChickpeaSalad.png";
+import cheeseCake from "./cheeseCake.png";
+import chickenRoll from "./chickenRoll.png";
+import chickenSalad from "./chickenSalad.png";
+import creamCake from "./creamCake.png";
+import cupCake from "./cupCake.png";
+import grillSandwich from "./grillSandwich.png";
+import lasagnaRolls from "./lasagnaRolls.png";
+import linguine from "./linguine.png";
+import NoddleSoup from "./NoddleSoup.png";
+import penne from "./penne.png";
+import periperiRoll from "./periperiRoll.jpg";
+import pizzaRoll from "./pizzaRoll.png";
+import rajmaChawal from "./rajmaChawal.png";
+import rotiniPasta from "./rotiniPasta.png";
+import SpicyNoddle from "./SpicyNoddle.png";
+import StrawberryCheesecake from "./StrawberryCheesecake.png";
+import vanillaCake from "./vanillaCake.png";
+import veganSandwich from "./veganSandwich.jpg";
+import vegLeafySalad from "./vegLeafySalad.png";
+import vegSalad from "./vegSalad.png";
+import veganSandwich from "./veganSandwich.png";
 
 export const assets = {
   logo,
@@ -100,6 +126,32 @@ export const assets = {
   Grilled_chicken_sandwich,
   Grilled_veg_sandwich,
   ramen,
+  AlfredoPasta,
+  BlueberryLayerCake,
+  BrownRiceBowl,
+  caeserSalad,
+  cauliflowerChickpeaSalad,
+  cheeseCake,
+  chickenRoll,
+  chickenSalad,
+  creamCake,
+  cupCake,
+  grillSandwich,
+  lasagnaRolls,
+  linguine,
+  NoddleSoup,
+  penne,
+  periperiRoll,
+  pizzaRoll,
+  rajmaChawal,
+  rotiniPasta,
+  SpicyNoddle,
+  StrawberryCheesecake,
+  vanillaCake,
+  veganSandwich,
+  vegSalad,
+  veganSandwich,
+  vegLeafySalad,
 };
 
 export const menu_list = [
