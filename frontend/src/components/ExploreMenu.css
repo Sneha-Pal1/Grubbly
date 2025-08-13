@@ -1,54 +1,66 @@
-.explore-menu{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.explore-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-.explore-menu h1{
-    color: #370617;
-    font-weight: 500;
+.explore-menu h1 {
+  color: #370617;
+  font-weight: 500;
 }
-.explore-menu-text{
-    max-width: 60%;
-    color: #6a040f;
+.explore-menu-text {
+  max-width: 60%;
+  color: #6a040f;
 }
-.explore-menu-list{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-    text-align: center;
-    margin: 20px 0px;
-    overflow: scroll;
+.explore-menu-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  text-align: center;
+  margin: 20px 0px;
+  overflow: scroll;
+  /* display: flex;
+  gap: 30px;
+  text-align: center;
+  margin: 20px 0px;
+  overflow-x: auto;
+  scrollbar-width: none; Firefox */
 }
 /* .explore-menu-list::-webkit-scrollbar{
     display: none;
 } */
-.explore-menu-list-item img{
-    width: 7.5vw;
-    min-width: 80px;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: 0.25s;
- }
-.explore-menu-list-item p{
-    margin-top: 10px;
-    color: #6a040f;
-    font-size: max(1.4vw,16px);
-    cursor: pointer;
+.explore-menu-list-item img {
+  /* width: 7.5vw;
+  min-width: 80px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: 0.25s; */
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border 0.25s ease, transform 0.25s ease;
 }
-.explore-menu hr{
-    margin: 10px 0px;
-    height: 2px;
-    background-color: #6a040f;
-    border: none;
+.explore-menu-list-item p {
+  margin-top: 10px;
+  color: #6a040f;
+  font-size: max(1.4vw, 16px);
+  cursor: pointer;
 }
-.explore-menu-list-item .active{
-    border: 4px solid #e85d04;
-    padding: 2px;
+.explore-menu hr {
+  margin: 10px 0px;
+  height: 2px;
+  background-color: #6a040f;
+  border: none;
 }
-@media (max-width:1050px){
-    .explore-menu-text{
-        max-width: 100;
-        font-size: 14px;
-    }
+.explore-menu-list-item .active {
+  border: 4px solid #e85d04;
+  padding: 2px;
+}
+@media (max-width: 1050px) {
+  .explore-menu-text {
+    max-width: 100;
+    font-size: 14px;
+  }
 }

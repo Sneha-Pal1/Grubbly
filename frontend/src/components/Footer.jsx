@@ -12,10 +12,10 @@ const Footer = () => {
         <div className="footer-content-left">
           <img src={logoo} alt="logo" className="footer-logo" />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora,
-            cumque ratione. Nihil corporis, eos ratione, obcaecati voluptates ex
-            similique hic qui rerum numquam ad quisquam consequuntur labore
-            quasi quis nobis?
+            Grubbly brings your favorite meals straight to your door, fresh and
+            fast. Whether it’s a quick snack or a family feast, we partner with
+            the best local restaurants to deliver delicious food anytime,
+            anywhere. Your cravings, our priority!
           </p>
           <div className="footer-social-icons">
             <img src={facebook_icon} alt="" />
@@ -36,13 +36,13 @@ const Footer = () => {
           <h2>GET IN TOUCH</h2>
           <ul>
             <li>+91 9999999999</li>
-            <li>contact@tomato.com</li>
+            <li>contact@Grubbly.com</li>
           </ul>
         </div>
       </div>
       <hr />
       <p className="footer-copyright">
-        Copyright 2025 &copy; Tomato.com - All Right Reserved.
+        Copyright 2025 &copy; Grubbly.com - All Right Reserved.
       </p>
     </div>
   );
