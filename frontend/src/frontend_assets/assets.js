@@ -103,6 +103,10 @@ import vegBiryani from "./vegBiryani.jpg";
 import vegFriedRice from "./vegFriedRice.jpg";
 import vegPulao from "./vegPulao.jpg";
 import sawarma from "./sawarma.jpg";
+import BerryRippleIceCream from "./BerryRippleIceCream.png";
+import fruitIceCream from "./fruitIceCream.png";
+import Kulfi from "Kulfi.png";
+import vanillaIceCream from "./vanillaIceCream.png";
 
 export const assets = {
   logo,
@@ -160,6 +164,10 @@ export const assets = {
   vegSalad,
   veganSandwich,
   vegLeafySalad,
+  BerryRippleIceCream,
+  fruitIceCream,
+  Kulfi,
+  vanillaIceCream,
 };
 
 export const menu_list = [
@@ -311,42 +319,42 @@ export const food_list = [
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
   },
-  // {
-  //   _id: "13",
-  //   name: "Ripple Ice Cream",
-  //   image: food_9,
-  //   price: 14,
-  //   description:
-  //     "Food provides essential nutrients for overall health and well-being",
-  //   category: "Deserts",
-  // },
-  // {
-  //   _id: "14",
-  //   name: "Fruit Ice Cream",
-  //   image: food_10,
-  //   price: 22,
-  //   description:
-  //     "Food provides essential nutrients for overall health and well-being",
-  //   category: "Deserts",
-  // },
-  // {
-  //   _id: "15",
-  //   name: "Jar Ice Cream",
-  //   image: food_11,
-  //   price: 10,
-  //   description:
-  //     "Food provides essential nutrients for overall health and well-being",
-  //   category: "Deserts",
-  // },
-  // {
-  //   _id: "16",
-  //   name: "Vanilla Ice Cream",
-  //   image: food_12,
-  //   price: 12,
-  //   description:
-  //     "Food provides essential nutrients for overall health and well-being",
-  //   category: "Deserts",
-  // },
+  {
+    _id: "13",
+    name: "Berry Ripple Ice Cream",
+    image: BerryRippleIceCream,
+    price: 14,
+    description:
+      "Food provides essential nutrients for overall health and well-being",
+    category: "Deserts",
+  },
+  {
+    _id: "14",
+    name: "Fruit Ice Cream",
+    image: fruitIceCream,
+    price: 22,
+    description:
+      "Food provides essential nutrients for overall health and well-being",
+    category: "Deserts",
+  },
+  {
+    _id: "15",
+    name: "Jar Ice Cream",
+    image: Kulfi,
+    price: 10,
+    description:
+      "Food provides essential nutrients for overall health and well-being",
+    category: "Deserts",
+  },
+  {
+    _id: "16",
+    name: "Vanilla Ice Cream",
+    image: vanillaIceCream,
+    price: 12,
+    description:
+      "Food provides essential nutrients for overall health and well-being",
+    category: "Deserts",
+  },
   {
     _id: "17",
     name: "Veg Sandwich",
@@ -402,7 +410,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "24",
+    _id: "23",
     name: "Bluberry Layered Cake",
     image: BlueberryLayerCake,
     price: 20,
@@ -411,7 +419,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "25",
+    _id: "24",
     name: "Cheese Cake",
     image: cheeseCake,
     price: 15,
@@ -420,7 +428,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "26",
+    _id: "25",
     name: "Strawberry Cheese Cake",
     image: StrawberryCheesecake,
     price: 15,
@@ -429,7 +437,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "27",
+    _id: "26",
     name: "Vanilla Cake",
     image: vanillaCake,
     price: 15,
@@ -438,7 +446,7 @@ export const food_list = [
     category: "Cake",
   },
   {
-    _id: "29",
+    _id: "27",
     name: "Veg Fried Rice ",
     image: vegFriedRice,
     price: 14,
@@ -447,7 +455,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "30",
+    _id: "28",
     name: "Veg Biryani",
     image: vegBiryani,
     price: 22,
@@ -456,7 +464,7 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "31",
+    _id: "29",
     name: "Mix Veg Pulao",
     image: vegPulao,
     price: 10,
@@ -465,34 +473,34 @@ export const food_list = [
     category: "Pure Veg",
   },
   {
-    _id: "32",
+    _id: "30",
     name: "Chicken Dum Biryani",
     image: chicken_dum_biriyani,
     price: 12,
     description:
       "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    category: "Rice Items",
   },
   {
-    _id: "33",
+    _id: "31",
     name: "Chicken Fried Rice",
     image: chicken_fried_rice,
     price: 12,
     description:
       "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    category: "Rice Items",
   },
   {
-    _id: "34",
+    _id: "32",
     name: "Brown Rice Bowl",
     image: BrownRiceBowl,
     price: 12,
     description:
       "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    category: "Rice Items",
   },
   {
-    _id: "35",
+    _id: "33",
     name: "Alfredo Pasta",
     image: AlfredoPasta,
     price: 12,
@@ -501,7 +509,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "36",
+    _id: "34",
     name: "Farfalle Pasta",
     image: farfalle,
     price: 18,
@@ -510,7 +518,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "37",
+    _id: "35",
     name: "Penne Pasta",
     image: penne,
     price: 16,
@@ -519,7 +527,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "38",
+    _id: "36",
     name: "Rotini Pasta",
     image: rotiniPasta,
     price: 24,
@@ -528,7 +536,7 @@ export const food_list = [
     category: "Pasta",
   },
   {
-    _id: "39",
+    _id: "37",
     name: "Soup Noodle",
     image: NoddleSoup,
     price: 14,
@@ -537,7 +545,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "40",
+    _id: "38",
     name: "Rice Noodles",
     image: riceNoodles,
     price: 12,
@@ -546,7 +554,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "41",
+    _id: "39",
     name: "Spicy Noodles",
     image: SpicyNoddle,
     price: 20,
@@ -555,7 +563,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "42",
+    _id: "40",
     name: "Cooked Noodles",
     image: vegNoodles,
     price: 15,
@@ -564,7 +572,7 @@ export const food_list = [
     category: "Noodles",
   },
   {
-    _id: "43",
+    _id: "41",
     name: "Ramen",
     image: ramen,
     price: 15,
