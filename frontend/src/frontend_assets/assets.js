@@ -43,7 +43,7 @@ import BlueberryLayerCake from "./BlueberryLayerCake.png";
 import BrownRiceBowl from "./BrownRiceBowl.png";
 import caeserSalad from "./caeserSalad.jpg";
 import cauliflowerChickpeaSalad from "./cauliflowerChickpeaSalad.png";
-import cheeseCake from "./cheeseCake.png";
+import cheeseCake from "./CheeseCake.png";
 import chickenRoll from "./chickenRoll.png";
 import chickenSalad from "./chickenSalad.png";
 import creamCake from "./creamCake.png";
