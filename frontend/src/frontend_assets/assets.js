@@ -47,7 +47,7 @@ import cheeseCake from "./CheeseCake.png";
 import chickenRoll from "./chickenRoll.png";
 import chickenSalad from "./chickenSalad.png";
 import creamCake from "./creamCake.png";
-import cupCake from "./cupCake.png";
+import cupCake from "./cupcake.png";
 import grillSandwich from "./grillSandwich.png";
 import lasagnaRolls from "./lasagnaRolls.png";
 import linguine from "./linguine.png";
