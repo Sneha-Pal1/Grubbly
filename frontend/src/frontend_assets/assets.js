@@ -1,7 +1,8 @@
 import catlogo from "./catlogo.png";
 import basket_icon from "./basket_icon.png";
 import logo from "./logo.png";
-import header_img from "./header_img.png";
+// import header_img from "./header_img.png";
+import food_header from "./food_header.png";
 import search_icon from "./search_icon.png";
 import menu_1 from "./menu_1.png";
 import menu_rolls from "./menu_rolls.png";
@@ -79,7 +80,7 @@ import vanillaIceCream from "./vanillaIceCream.png";
 export const assets = {
   logo,
   basket_icon,
-  header_img,
+  // header_img,
   search_icon,
   rating_starts,
   add_icon_green,
@@ -135,8 +136,8 @@ export const assets = {
   BerryRippleIceCream,
   fruitIceCream,
   caramelToppedIceCream,
-  // kulfi,
   vanillaIceCream,
+  food_header,
 };
 
 export const menu_list = [
