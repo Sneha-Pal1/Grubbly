@@ -1,19 +1,25 @@
+/* Card container */
 .food-item {
-  width: 100%;
-  margin: auto;
-  border-radius: 15px;
-  box-shadow: 0px 0px 10px #00000015;
-  transition: 0.3s;
-  animation: fadeIn 1s;
-  background: white;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px #00000015;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* ensures equal height in grid */
 }
 
+.food-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Image container */
 .food-item-img-container {
   position: relative;
   width: 100%;
-  height: 200px; /* fixed image height for uniform cards */
+  height: 200px; /* fixed uniform height */
   overflow: hidden;
   border-radius: 15px 15px 0 0;
 }
@@ -21,47 +27,10 @@
 .food-item-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* crop without distortion */
-  border-radius: 15px 15px 0px 0px;
+  object-fit: cover;
 }
 
-.food-item-info {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.food-item-name-rating {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.food-item-name-rating p {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.food-item-name-rating img {
-  width: 70px;
-}
-
-.food-item-desc {
-  color: #69585f;
-  font-size: 12px;
-  margin-bottom: 10px;
-}
-
-.food-item-price {
-  color: #dc2f02;
-  font-size: 22px;
-  font-weight: 500;
-  margin: 10px 0px;
-}
-
+/* Add/Remove Button */
 .food-item-img-container .add {
   width: 35px;
   position: absolute;
@@ -86,4 +55,42 @@
 .food-item-counter img {
   width: 30px;
   cursor: pointer;
+}
+
+/* Info section */
+.food-item-info {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-item-name-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.food-item-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.food-item-name-rating img {
+  width: 70px;
+}
+
+.food-item-desc {
+  color: #69585f;
+  font-size: 13px;
+  flex-grow: 1; /* pushes price down */
+  margin-bottom: 8px;
+}
+
+.food-item-price {
+  color: #dc2f02;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: auto; /* always sits at bottom */
 }

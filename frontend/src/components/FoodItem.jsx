@@ -11,43 +11,47 @@ const FoodItem = ({ id, name, price, description, image }) => {
     useContext(StoreContext);
 
   return (
-    <div>
-      <div className="food-item">
-        <div className="food-item-img-container">
+    <div className="food-item">
+      {/* Image Section */}
+      <div className="food-item-img-container">
+        <img
+          className="food-item-image"
+          src={url + "/images/" + image}
+          alt={name}
+        />
+
+        {/* Add/Remove Button */}
+        {!cartItems[id] ? (
           <img
-            className="food-item-image"
-            src={url + "/images/" + image}
-            alt=""
+            className="add"
+            onClick={() => addToCart(id)}
+            src={add_icon_white}
+            alt="Add to cart"
           />
-          {!cartItems[id] ? (
+        ) : (
+          <div className="food-item-counter">
             <img
-              className="add"
-              onClick={() => addToCart(id)}
-              src={add_icon_white}
-              alt=""
+              onClick={() => removeFromCart(id)}
+              src={remove_icon_red}
+              alt="Remove"
             />
-          ) : (
-            <div className="food-item-counter">
-              <img
-                onClick={() => removeFromCart(id)}
-                src={remove_icon_red}
-                alt=""
-              />
-              <p>{cartItems[id]}</p>
-              <img onClick={() => addToCart(id)} src={add_icon_green} alt="" />
-            </div>
-          )}
-        </div>
-        <div className="food-item-info">
-          <div className="food-item-name-rating">
-            <p>{name}</p>
-            <img src={rating_starts} alt="" />
+            <p>{cartItems[id]}</p>
+            <img onClick={() => addToCart(id)} src={add_icon_green} alt="Add" />
           </div>
-          <p className="food-item-desc">{description}</p>
-          <p className="food-item-price">$ {price}</p>
+        )}
+      </div>
+
+      {/* Info Section */}
+      <div className="food-item-info">
+        <div className="food-item-name-rating">
+          <p className="food-item-title">{name}</p>
+          <img src={rating_starts} alt="Rating" />
         </div>
+        <p className="food-item-desc">{description}</p>
+        <p className="food-item-price">${price}</p>
       </div>
     </div>
   );
 };
+
 export default FoodItem;
