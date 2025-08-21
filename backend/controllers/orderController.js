@@ -5,6 +5,8 @@ const placeOrder = async (req, res) => {
   const frontend_url = "http://localhost:5173";
 
   try {
+    console.log("📥 Incoming order data:", req.body);
+
     const newOrder = new orderModel({
       userId: req.body.userId,
       items: req.body.items,
@@ -15,11 +17,11 @@ const placeOrder = async (req, res) => {
     });
 
     await newOrder.save();
+    console.log("✅ Order saved:", newOrder);
 
-    // Clear the cart after order
+    // Clear the cart
     await userModel.findByIdAndUpdate(req.body.userId, { cartData: {} });
 
-    // ✅ Only one response
     res.json({
       success: true,
       message: "Order placed successfully with Cash on Delivery",
@@ -28,8 +30,8 @@ const placeOrder = async (req, res) => {
       cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
     });
   } catch (error) {
-    console.error("Error placing order:", error);
-    res.status(500).json({ success: false, message: "Something went wrong" });
+    console.error("❌ Error placing order:", error.message);
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 

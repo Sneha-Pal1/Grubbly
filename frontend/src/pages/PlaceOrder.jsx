@@ -27,27 +27,37 @@ const PlaceOrder = () => {
 
   const placeOrder = async (event) => {
     event.preventDefault();
+
+    // Build order items
     let orderItems = [];
-    food_list.map((item) => {
+    food_list.forEach((item) => {
       if (cartItems[item._id] > 0) {
-        let itemInfo = item;
-        itemInfo["quqntity"] = cartItems[item._id];
+        let itemInfo = { ...item, quantity: cartItems[item._id] };
         orderItems.push(itemInfo);
       }
     });
+
+    // Prepare order data
     let orderData = {
       address: data,
       items: orderItems,
       amount: getTotalCartAmount() + 2,
     };
-    let response = await axios.post(url + "/api/order/place", orderData, {
-      headers: { token },
-    });
-    if (response.data.success) {
-      const { session_url } = response.data;
-      window.location.replace(session_url);
-    } else {
-      alert("Error");
+
+    try {
+      let response = await axios.post(url + "/api/order/place", orderData, {
+        headers: { token },
+      });
+
+      if (response.data.success) {
+        // ✅ redirect to verify page instead of Stripe
+        window.location.replace(response.data.success_url);
+      } else {
+        alert("Error placing order. Please try again.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Order failed. Please try again.");
     }
   };
 
@@ -87,7 +97,7 @@ const PlaceOrder = () => {
           onChange={onChangeHandler}
           value={data.street}
           type="text"
-          placeholder="street"
+          placeholder="Street"
         />
         <div className="multi-fields">
           <input
@@ -131,9 +141,10 @@ const PlaceOrder = () => {
           onChange={onChangeHandler}
           value={data.phone}
           type="text"
-          placeholder="phone"
+          placeholder="Phone"
         />
       </div>
+
       <div className="place-order-right">
         <h2>Cart Total</h2>
         <div>
@@ -151,7 +162,7 @@ const PlaceOrder = () => {
             <b>Total</b>
             <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
           </div>
-          <button type="submit">PROCEED TO PAYMENT</button>
+          <button type="submit">PLACE ORDER (COD)</button>
         </div>
       </div>
     </form>
