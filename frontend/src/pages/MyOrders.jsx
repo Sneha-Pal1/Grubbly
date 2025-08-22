@@ -34,7 +34,7 @@ const MyOrders = () => {
   }, [token]);
 
   return (
-    <div className="my-order">
+    <div className="my-orders">
       <h2>My Orders</h2>
       <div className="container">
         {data.map((order, index) => {
@@ -52,7 +52,7 @@ const MyOrders = () => {
                   })
                   .join("")}
               </p>
-              <p>${order.amount}</p>
+              <p>${order.amount}.00</p>
               <p>Items: {order.items.length}</p>
               <p>
                 <span>&#x25cf;</span> <b>{order.status}</b>
