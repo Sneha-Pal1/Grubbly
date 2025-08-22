@@ -2,7 +2,7 @@ import orderModel from "../models/orderModel.js";
 import userModel from "../models/userModel.js";
 
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5173";
+  const frontend_url = "https://grubbly-frontend-w0vq.onrender.com/";
 
   try {
     console.log("📥 Incoming order data:", req.body);
