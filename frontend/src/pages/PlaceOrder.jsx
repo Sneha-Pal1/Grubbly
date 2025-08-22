@@ -5,7 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
-  const { getTotalCartAmount, token, food_list, cartItems, url } =
+  const { getTotalCartAmount, token, food_list, cartItems, url, clearCart } =
     useContext(StoreContext);
 
   const [data, setData] = useState({
@@ -51,8 +51,10 @@ const PlaceOrder = () => {
       });
 
       if (response.data.success) {
-        // ✅ redirect to verify page instead of Stripe
-        window.location.replace(response.data.success_url);
+        // For COD orders, redirect directly to myorders page
+        clearCart(); // Clear the cart
+        alert("Order placed successfully! Cash on Delivery.");
+        navigate("/myorders");
       } else {
         alert("Error placing order. Please try again.");
       }

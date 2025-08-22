@@ -26,8 +26,6 @@ const placeOrder = async (req, res) => {
       success: true,
       message: "Order placed successfully with Cash on Delivery",
       orderId: newOrder._id,
-      success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
-      cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`,
     });
   } catch (error) {
     console.error("❌ Error placing order:", error.message);

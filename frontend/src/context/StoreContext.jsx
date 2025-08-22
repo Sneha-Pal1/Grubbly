@@ -57,6 +57,10 @@ const StoreContextProvider = (props) => {
     setCartItems(response.data.cartData);
   };
 
+  const clearCart = () => {
+    setCartItems({});
+  };
+
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();
@@ -74,6 +78,7 @@ const StoreContextProvider = (props) => {
     addToCart,
     removeFromCart,
     getTotalCartAmount,
+    clearCart,
     url,
     token,
     setToken,
