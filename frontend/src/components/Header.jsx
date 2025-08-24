@@ -1,6 +1,6 @@
 import React from "react";
 import "./Header.css";
-import headerImg from "../frontend_assets/header_img.png";
+import headerImg from "/header_img.png"; // Import from public directory
 
 const Header = () => {
   return (

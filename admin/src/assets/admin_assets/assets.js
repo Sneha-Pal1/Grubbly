@@ -18,4 +18,4 @@ export const assets = {
   logoo,
 };
 
-export const url = "https://grubbly-backend.onrender.com";
+export const url = "http://localhost:3000";
