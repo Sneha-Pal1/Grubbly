@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const url = "http://localhost:3000"; // Set the backend URL directly
+  const url = "https://grubbly-backend.onrender.com"; // Set the live deployed production backend URL
   
   // Read authorization token and user role from localStorage if they exist (maintains sessions across reloads)
   const [token, setToken] = useState(localStorage.getItem("adminToken") || "");
