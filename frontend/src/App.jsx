@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import LoginPopup from "./components/LoginPopup";
 import Verify from "./pages/Verify";
 import MyOrders from "./pages/MyOrders";
+import TrackOrder from "./pages/TrackOrder"; // Import the WebSocket and map order tracking page
 
 const App = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -22,6 +23,8 @@ const App = () => {
           <Route path="/order" element={<PlaceOrder />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/myorders" element={<MyOrders />} />
+          {/* Active delivery tracking map route */}
+          <Route path="/track/:orderId" element={<TrackOrder />} />
         </Routes>
       </div>
       <Footer />
@@ -30,3 +33,4 @@ const App = () => {
 };
 
 export default App;
+

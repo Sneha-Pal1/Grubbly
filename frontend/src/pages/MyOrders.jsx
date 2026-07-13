@@ -4,10 +4,12 @@ import { useContext } from "react";
 import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
 import parcel_icon from "../frontend_assets/parcel_icon.png";
+import { useNavigate } from "react-router-dom"; // Import navigation hook to route to track order page
 
 const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
+  const navigate = useNavigate(); // Instantiate navigate controller
 
   const fetchOrders = async () => {
     try {
@@ -57,7 +59,8 @@ const MyOrders = () => {
               <p>
                 <span>&#x25cf;</span> <b>{order.status}</b>
               </p>
-              <button onClick={fetchOrders}>Track Order</button>
+              {/* Redirect customer to the live interactive WebSockets tracking map screen */}
+              <button onClick={() => navigate(`/track/${order._id}`)}>Track Order</button>
             </div>
           );
         })}
@@ -67,3 +70,4 @@ const MyOrders = () => {
 };
 
 export default MyOrders;
+

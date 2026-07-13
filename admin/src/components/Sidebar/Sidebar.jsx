@@ -2,10 +2,17 @@ import React from "react";
 import "./Sidebar.css";
 import { assets } from "../../assets/admin_assets/assets";
 import { NavLink } from "react-router-dom";
+
+// The Sidebar component provides navigation shortcuts to main sections: Dashboard, Add, List, and Orders.
 const sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar-options">
+        {/* Navigation link to the analytics dashboard */}
+        <NavLink to="/dashboard" className="sidebar-option">
+          <img src={assets.order_icon} alt="" style={{ filter: "hue-rotate(45deg)" }} />
+          <p>Dashboard</p>
+        </NavLink>
         <NavLink to="/add" className="sidebar-option">
           <img src={assets.add_icon} alt="" />
           <p>Add Items</p>
@@ -24,3 +31,4 @@ const sidebar = () => {
 };
 
 export default sidebar;
+

@@ -4,7 +4,7 @@ import { assets } from "../../assets/admin_assets/assets";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Add = ({ url }) => {
+const Add = ({ url, token }) => {
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -26,7 +26,11 @@ const Add = ({ url }) => {
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
     formData.append("image", image);
-    const response = await axios.post(`${url}/api/food/add`, formData);
+
+    // Pass the auth token in headers since this route requires validation and is restricted to admin/vendor
+    const response = await axios.post(`${url}/api/food/add`, formData, {
+      headers: { token },
+    });
     if (response.data.success) {
       setData({
         name: "",
@@ -40,6 +44,7 @@ const Add = ({ url }) => {
       toast.error(response.data.message);
     }
   };
+
 
   return (
     <div className="add">

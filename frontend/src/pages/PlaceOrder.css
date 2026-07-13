@@ -12,15 +12,15 @@
 .place-order-left .title{
     font-size: 30px;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 .place-order-left input{
     margin-bottom: 15px;
     width: 100%;
     padding: 10px;
-    border: 1px solid #f4f1de;
+    border: 1px solid #c9c9c9;
     border-radius: 4px;
-    outline-color: #dc2f02;
+    outline-color: #ff6347;
 }
 .place-order-left .multi-fields{
     display: flex;
@@ -28,8 +28,76 @@
 }
 .place-order-right{
     width: 100%;
-    max-width: max(40%,50px);
+    max-width: max(40%,500px);
 }
 .place-order .cart-total-button{
     margin-top: 30px;
 }
+
+/* 🗺️ Leaflet Map Styling */
+.map-instruction {
+    font-size: 14px;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+#map-select {
+    height: 250px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 💳 Payment Method Cards Styling */
+.payment-section-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.payment-methods {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.payment-method-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border: 2px solid #e2e2e2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+}
+
+.payment-method-card:hover {
+    border-color: #ff6347;
+    background-color: #fff9f8;
+}
+
+.payment-method-card.active {
+    border-color: #ff6347;
+    background-color: #fff4f2;
+    box-shadow: 0 2px 8px rgba(255, 99, 71, 0.15);
+}
+
+.payment-method-card span.icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.payment-method-card p {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
