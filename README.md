@@ -12,7 +12,7 @@ The flowchart below demonstrates the integration between the Customer App, Admin
 
 ```mermaid
 graph TD
-    subgraph Customer Client (React Frontend)
+    subgraph "Customer Client (React Frontend)"
         A[Browse Menu] --> B[Add Items to Cart]
         B --> C[Checkout Page]
         C --> D[Pin Address on Leaflet Map]
@@ -23,7 +23,7 @@ graph TD
         F -- Cash on Delivery --> I[Send Order to Place API]
     end
 
-    subgraph Backend Server (Express and WebSockets)
+    subgraph "Backend Server (Express and WebSockets)"
         H --> J[Verify Signature via HMAC-SHA256]
         J -- Match --> K[Save Order as Paid and Clear Cart]
         I --> L[Save Order as Unpaid and Clear Cart]
@@ -31,7 +31,7 @@ graph TD
         L --> M
     end
 
-    subgraph Vendor / Admin (React Dashboard)
+    subgraph "Vendor / Admin (React Dashboard)"
         N[Vendor Logs In] --> O[Scoped Dashboard Loads Metrics]
         O --> P[Orders Panel]
         P --> Q[Change Status to Out for Delivery]
@@ -40,7 +40,7 @@ graph TD
         S --> M
     end
 
-    subgraph Real-Time Tracking (WebSockets)
+    subgraph "Real-Time Tracking (WebSockets)"
         M --> T[Broadcast status_update Event]
         T --> U[Customer Tracking Page]
         U --> V[Animate Rider Marker on Leaflet Map]
@@ -167,3 +167,10 @@ grubbly/
 1. Point your frontend deployment project to the `frontend` directory using the Vite preset.
 2. Point your admin deployment project to the `admin` directory using the Vite preset.
 3. Update the `url` endpoints in `StoreContext.jsx` and `admin/src/App.jsx` to point to your live backend domain (e.g., `https://your-backend.onrender.com`) before building.
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
