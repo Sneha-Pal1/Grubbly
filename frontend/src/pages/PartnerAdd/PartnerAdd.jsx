@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./Add.css";
+import "./PartnerAdd.css";
 import { assets } from "../../assets/admin_assets/assets";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const Add = ({ url, token }) => {
+const PartnerAdd = ({ url, token }) => {
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
     name: "",
@@ -45,9 +45,8 @@ const Add = ({ url, token }) => {
     }
   };
 
-
   return (
-    <div className="add">
+    <div className="partner-add">
       <form className="flex-col" onSubmit={onSubmitHandler}>
         <div className="add-img-upload flex-col">
           <p>Upload Image</p>
@@ -73,6 +72,7 @@ const Add = ({ url, token }) => {
             type="text"
             name="name"
             placeholder="Type here"
+            required
           />
         </div>
         <div className="add-product-description flex-col">
@@ -113,6 +113,7 @@ const Add = ({ url, token }) => {
               type="Number"
               name="price"
               placeholder="₹20"
+              required
             />
           </div>
         </div>
@@ -124,4 +125,4 @@ const Add = ({ url, token }) => {
   );
 };
 
-export default Add;
+export default PartnerAdd;

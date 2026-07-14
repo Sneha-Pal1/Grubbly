@@ -1,0 +1,68 @@
+.partner-list {
+  width: 70%;
+  margin-left: max(5vw, 25px);
+  margin-top: 50px;
+  color: #6d6d6d;
+  font-size: 16px;
+}
+
+.partner-list p.title-text {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+/* Table container */
+.list-table {
+  width: 100%;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* Table header & row styling */
+.list-table-format {
+  display: grid;
+  grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; /* Image, Name, Category, Price, Stock, Action */
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border-bottom: 1px solid #cacaca;
+  font-size: 14px;
+}
+
+.list-table-format.title {
+  background-color: #f9f9f9;
+}
+
+/* Images */
+.list-table-format img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* Delete button */
+.list-table-format p.cursor {
+  color: red;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Hover effect for rows */
+.list-table-format:not(.title):hover {
+  background-color: #fafafa;
+}
+
+/* Responsive table */
+@media (max-width: 600px) {
+  .list-table-format {
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 8px;
+  }
+  .list-table-format.title {
+    display: none; /* Hide header on small screens */
+  }
+}

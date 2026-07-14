@@ -1,0 +1,14 @@
+.partner-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 4%;
+}
+
+.partner-navbar .logoo {
+  width: max(10%, 80px);
+}
+
+.partner-navbar .profile {
+  width: 40px;
+}

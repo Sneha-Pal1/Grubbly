@@ -253,14 +253,14 @@ const TrackOrder = () => {
               {order?.items?.map((item, index) => (
                 <div key={index} className="item-row">
                   <span>{item.name} <b>x{item.quantity}</b></span>
-                  <span>${item.price * item.quantity}</span>
+                  <span>₹{item.price * item.quantity}</span>
                 </div>
               ))}
             </div>
             <hr />
             <div className="details-row total">
               <span>Total Amount (incl. delivery):</span>
-              <span>${order?.amount}</span>
+              <span>₹{order?.amount}</span>
             </div>
             <button className="back-button" onClick={() => navigate("/myorders")}>
               Back to My Orders

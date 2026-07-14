@@ -1,0 +1,12 @@
+.partner-app-wrapper {
+  min-height: 100vh;
+  background-color: #fdfdfd;
+}
+.partner-app-content {
+  display: flex;
+}
+.partner-main-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #fcfcfc;
+}

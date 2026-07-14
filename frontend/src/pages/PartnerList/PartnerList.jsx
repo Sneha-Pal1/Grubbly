@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./List.css";
+import "./PartnerList.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const List = ({ url, token, role }) => {
-  const [List, setList] = useState([]);
+const PartnerList = ({ url, token, role }) => {
+  const [list, setList] = useState([]);
 
   // Helper function to decode JWT client-side without external dependencies
   const getUserIdFromToken = (jwtToken) => {
@@ -93,8 +93,8 @@ const List = ({ url, token, role }) => {
   }, [token, role]);
 
   return (
-    <div className="list add flex-col">
-      <p>All Foods List</p>
+    <div className="partner-list flex-col">
+      <p className="title-text">All Foods List</p>
       <div className="list-table">
         <div className="list-table-format title">
           <b>Image</b>
@@ -104,7 +104,7 @@ const List = ({ url, token, role }) => {
           <b>Stock Status</b>
           <b>Action</b>
         </div>
-        {List.map((item, index) => {
+        {list.map((item, index) => {
           return (
             <div key={index} className="list-table-format">
               <img src={`${url}/images/` + item.image} alt="" />
@@ -124,6 +124,7 @@ const List = ({ url, token, role }) => {
                     cursor: "pointer",
                     fontSize: "12px",
                     fontWeight: 600,
+                    fontFamily: "'Outfit', sans-serif"
                   }}
                 >
                   {item.inStock ? "In Stock" : "Out of Stock"}
@@ -140,5 +141,4 @@ const List = ({ url, token, role }) => {
   );
 };
 
-export default List;
-
+export default PartnerList;

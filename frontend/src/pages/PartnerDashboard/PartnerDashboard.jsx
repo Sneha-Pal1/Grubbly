@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import "./Dashboard.css";
+import "./PartnerDashboard.css";
 
-const Dashboard = ({ url, token, role }) => {
+const PartnerDashboard = ({ url, token, role }) => {
   const [orders, setOrders] = useState([]);
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -70,7 +70,7 @@ const Dashboard = ({ url, token, role }) => {
   }, [token, role]);
 
   if (loading) {
-    return <div style={{ padding: "30px", fontSize: "16px" }}>Analyzing stats...</div>;
+    return <div style={{ padding: "30px", fontSize: "16px", fontFamily: "'Outfit', sans-serif" }}>Analyzing stats...</div>;
   }
 
   // COMPUTE ANALYTICS METRICS
@@ -84,7 +84,7 @@ const Dashboard = ({ url, token, role }) => {
   const outOfStockDishes = foods.filter((food) => !food.inStock).length;
 
   return (
-    <div className="dashboard">
+    <div className="partner-dashboard-wrapper">
       <h2>Welcome back!</h2>
       <p className="dashboard-subtitle">
         Here is what's happening with your kitchen today ({role === "admin" ? "Platform Admin" : "Kitchen Vendor"}).
@@ -174,4 +174,4 @@ const Dashboard = ({ url, token, role }) => {
   );
 };
 
-export default Dashboard;
+export default PartnerDashboard;

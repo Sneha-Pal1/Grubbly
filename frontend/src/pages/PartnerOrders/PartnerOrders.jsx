@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import "./Orders.css";
+import "./PartnerOrders.css";
 import { toast } from "react-toastify";
 import axios from "axios";
 import { assets } from "../../assets/admin_assets/assets";
 
-const Orders = ({ url, token }) => {
+const PartnerOrders = ({ url, token }) => {
   const [orders, setOrders] = useState([]);
   const [activeMapCoords, setActiveMapCoords] = useState(null); // Holds { lat, lng, name } for modal view
   const adminMapRef = useRef(null);
@@ -87,7 +87,7 @@ const Orders = ({ url, token }) => {
   }, [activeMapCoords]);
 
   return (
-    <div className="order add">
+    <div className="partner-orders">
       <h3>Order Page</h3>
       <div className="order-list">
         {orders && orders.length > 0 ? (
@@ -182,5 +182,4 @@ const Orders = ({ url, token }) => {
   );
 };
 
-export default Orders;
-
+export default PartnerOrders;

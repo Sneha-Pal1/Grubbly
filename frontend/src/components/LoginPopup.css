@@ -63,3 +63,29 @@
     font-weight: 500;
     cursor: pointer;
 }
+
+/* Role Selector Tabs */
+.login-popup-role-selector {
+  display: flex;
+  background-color: #f1f3f5;
+  border-radius: 6px;
+  padding: 4px;
+  margin-top: -10px;
+}
+.login-popup-role-selector button {
+  flex: 1;
+  border: none;
+  background: none;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6d676e;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.login-popup-role-selector button.active {
+  background-color: #ffffff !important;
+  color: #dc2f02 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
