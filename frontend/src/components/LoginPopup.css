@@ -88,4 +88,32 @@
   background-color: #ffffff !important;
   color: #dc2f02 !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
+}
+
+/* OR Divider & Google Button */
+.login-popup-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #888;
+  font-size: 12px;
+  margin: 5px 0;
+}
+.login-popup-divider::before,
+.login-popup-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+.login-popup-divider::before {
+  margin-right: 10px;
+}
+.login-popup-divider::after {
+  margin-left: 10px;
+}
+.google-login-container {
+  display: flex;
+  justify-content: center;
+  margin-top: -5px;
+}
+

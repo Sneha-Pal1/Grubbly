@@ -2,6 +2,7 @@ import userModel from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import validator from "validator";
+import { OAuth2Client } from "google-auth-library";
 
 // Helper function to generate a JSON Web Token (JWT).
 // We include both the user's MongoDB ID and the user's role ("customer", "vendor", "admin")
@@ -122,5 +123,62 @@ const registerUser = async (req, res) => {
   }
 };
 
-export { loginUser, registerUser };
+// Google Login / registration controller
+const googleLogin = async (req, res) => {
+  const { token, role } = req.body;
+  
+  try {
+    const googleClientId = process.env.GOOGLE_CLIENT_ID || process.env.CLIENT_ID;
+    const client = new OAuth2Client(googleClientId);
+    
+    // Cryptographically verify the Google ID token
+    const ticket = await client.verifyIdToken({
+      idToken: token,
+      audience: googleClientId,
+    });
+    
+    const payload = ticket.getPayload();
+    const { email, name } = payload;
 
+    // Check if the user already exists in our database
+    let user = await userModel.findOne({ email });
+
+    if (!user) {
+      // Create a new user if it does not exist yet (OAuth Registration)
+      // Generates a random secure password as password logins are bypassed via Google OAuth
+      const dummyPassword = Math.random().toString(36).slice(-10) + Date.now().toString();
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(dummyPassword, salt);
+      
+      user = new userModel({
+        name,
+        email,
+        password: hashedPassword,
+        role: role || "customer", // Assign chosen role (defaults to customer)
+      });
+      await user.save();
+      console.log(`👤 New Google user registered: ${email} (${user.role})`);
+    }
+
+    // Generate JWT token containing the verified user's database ID and role
+    const jwtToken = createToken(user._id, user.role);
+
+    res.json({
+      success: true,
+      token: jwtToken,
+      user: {
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (error) {
+    console.error("Google verify token error:", error);
+    res.json({
+      success: false,
+      message: "Google login verification failed. Please try again.",
+    });
+  }
+};
+
+export { loginUser, registerUser, googleLogin };

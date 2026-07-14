@@ -184,7 +184,7 @@ export const food_list = [
     _id: "1",
     name: "Greek salad",
     image: greek_salad,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -193,7 +193,7 @@ export const food_list = [
     _id: "2",
     name: "Veg salad",
     image: vegLeafySalad,
-    price: 18,
+    price: 118,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -202,7 +202,7 @@ export const food_list = [
     _id: "3",
     name: "Caeser Salad",
     image: caeserSalad,
-    price: 16,
+    price: 116,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -211,7 +211,7 @@ export const food_list = [
     _id: "4",
     name: "Chicken Salad",
     image: chickenSalad,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -220,7 +220,7 @@ export const food_list = [
     _id: "5",
     name: "Fruit Salad",
     image: fruit_salad,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -229,7 +229,7 @@ export const food_list = [
     _id: "6",
     name: "Chickpea Salad",
     image: cauliflowerChickpeaSalad,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Salad",
@@ -239,7 +239,7 @@ export const food_list = [
     _id: "7",
     name: "Lasagna Rolls",
     image: lasagnaRolls,
-    price: 14,
+    price: 114,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -248,7 +248,7 @@ export const food_list = [
     _id: "8",
     name: "Peri Peri Rolls",
     image: periperiRoll,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -257,7 +257,7 @@ export const food_list = [
     _id: "9",
     name: "Chicken Rolls",
     image: chickenRoll,
-    price: 20,
+    price: 120,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -266,7 +266,7 @@ export const food_list = [
     _id: "10",
     name: "Egg Rolls",
     image: egg_roll,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -275,7 +275,7 @@ export const food_list = [
     _id: "11",
     name: "sawarma",
     image: sawarma,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -284,7 +284,7 @@ export const food_list = [
     _id: "12",
     name: "Pizza Rolls",
     image: pizzaRoll,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rolls",
@@ -293,7 +293,7 @@ export const food_list = [
     _id: "13",
     name: "Berry Ripple Ice Cream",
     image: BerryRippleIceCream,
-    price: 14,
+    price: 114,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Desserts",
@@ -302,7 +302,7 @@ export const food_list = [
     _id: "14",
     name: "Fruit Ice Cream",
     image: fruitIceCream,
-    price: 22,
+    price: 122,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Desserts",
@@ -311,7 +311,7 @@ export const food_list = [
     _id: "15",
     name: "Caramel Topped Ice Cream",
     image: caramelToppedIceCream,
-    price: 10,
+    price: 110,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Desserts",
@@ -320,7 +320,7 @@ export const food_list = [
     _id: "16",
     name: "Vanilla Ice Cream",
     image: vanillaIceCream,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Desserts",
@@ -329,7 +329,7 @@ export const food_list = [
     _id: "17",
     name: "Veg Sandwich",
     image: vegSandwich,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Sandwich",
@@ -338,7 +338,7 @@ export const food_list = [
     _id: "18",
     name: "Vegan Sandwich",
     image: veganSandwich,
-    price: 18,
+    price: 118,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Sandwich",
@@ -347,7 +347,7 @@ export const food_list = [
     _id: "19",
     name: "Grilled Sandwich",
     image: grillSandwich,
-    price: 16,
+    price: 116,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Sandwich",
@@ -356,7 +356,7 @@ export const food_list = [
     _id: "20",
     name: "Grilled Veg Sandwich",
     image: Grilled_veg_sandwich,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Sandwich",
@@ -365,7 +365,7 @@ export const food_list = [
     _id: "21",
     name: "Grilled Chicken Sandwich",
     image: Grilled_chicken_sandwich,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Sandwich",
@@ -374,7 +374,7 @@ export const food_list = [
     _id: "22",
     name: "Cup Cake",
     image: cupCake,
-    price: 14,
+    price: 114,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Cake",
@@ -383,7 +383,7 @@ export const food_list = [
     _id: "23",
     name: "Bluberry Layered Cake",
     image: BlueberryLayerCake,
-    price: 20,
+    price: 120,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Cake",
@@ -392,7 +392,7 @@ export const food_list = [
     _id: "24",
     name: "Cheese Cake",
     image: cheeseCake,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Cake",
@@ -401,7 +401,7 @@ export const food_list = [
     _id: "25",
     name: "Strawberry Cheese Cake",
     image: StrawberryCheesecake,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Cake",
@@ -410,7 +410,7 @@ export const food_list = [
     _id: "26",
     name: "Vanilla Cake",
     image: vanillaCake,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Cake",
@@ -419,7 +419,7 @@ export const food_list = [
     _id: "27",
     name: "Veg Fried Rice ",
     image: vegFriedRice,
-    price: 14,
+    price: 114,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pure Veg",
@@ -428,7 +428,7 @@ export const food_list = [
     _id: "28",
     name: "Veg Biryani",
     image: vegBiryani,
-    price: 22,
+    price: 122,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pure Veg",
@@ -437,7 +437,7 @@ export const food_list = [
     _id: "29",
     name: "Mix Veg Pulao",
     image: vegPulao,
-    price: 10,
+    price: 110,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pure Veg",
@@ -446,7 +446,7 @@ export const food_list = [
     _id: "30",
     name: "Chicken Dum Biryani",
     image: chicken_dum_biriyani,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rice Items",
@@ -455,7 +455,7 @@ export const food_list = [
     _id: "31",
     name: "Chicken Fried Rice",
     image: chicken_fried_rice,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rice Items",
@@ -464,7 +464,7 @@ export const food_list = [
     _id: "32",
     name: "Brown Rice Bowl",
     image: BrownRiceBowl,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Rice Items",
@@ -473,7 +473,7 @@ export const food_list = [
     _id: "33",
     name: "Alfredo Pasta",
     image: AlfredoPasta,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pasta",
@@ -482,7 +482,7 @@ export const food_list = [
     _id: "34",
     name: "Farfalle Pasta",
     image: farfalle,
-    price: 18,
+    price: 118,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pasta",
@@ -491,7 +491,7 @@ export const food_list = [
     _id: "35",
     name: "Penne Pasta",
     image: penne,
-    price: 16,
+    price: 116,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pasta",
@@ -500,7 +500,7 @@ export const food_list = [
     _id: "36",
     name: "Rotini Pasta",
     image: rotiniPasta,
-    price: 24,
+    price: 124,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Pasta",
@@ -509,7 +509,7 @@ export const food_list = [
     _id: "37",
     name: "Soup Noodle",
     image: NoddleSoup,
-    price: 14,
+    price: 114,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Noodles",
@@ -518,7 +518,7 @@ export const food_list = [
     _id: "38",
     name: "Rice Noodles",
     image: riceNoodles,
-    price: 12,
+    price: 112,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Noodles",
@@ -527,7 +527,7 @@ export const food_list = [
     _id: "39",
     name: "Spicy Noodles",
     image: SpicyNoddle,
-    price: 20,
+    price: 120,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Noodles",
@@ -536,7 +536,7 @@ export const food_list = [
     _id: "40",
     name: "Cooked Noodles",
     image: vegNoodles,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Noodles",
@@ -545,7 +545,7 @@ export const food_list = [
     _id: "41",
     name: "Ramen",
     image: ramen,
-    price: 15,
+    price: 115,
     description:
       "Food provides essential nutrients for overall health and well-being",
     category: "Noodles",

@@ -4,6 +4,7 @@ import cross_icon from "../frontend_assets/cross_icon.png";
 import { StoreContext } from "../context/StoreContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 
 const LoginPopup = ({ setShowLogin }) => {
   const { url, setToken } = useContext(StoreContext);
@@ -20,6 +21,43 @@ const LoginPopup = ({ setShowLogin }) => {
     const name = event.target.name;
     const value = event.target.value;
     setData((data) => ({ ...data, [name]: value }));
+  };
+
+  const handleGoogleSuccess = async (credentialResponse) => {
+    try {
+      const idToken = credentialResponse.credential;
+      console.log("Google Login success, sending ID token to backend...");
+      
+      const response = await axios.post(url + "/api/user/google-login", {
+        token: idToken,
+        role: loginRole
+      });
+
+      if (response.data.success) {
+        const { token, user } = response.data;
+        setToken(token);
+        localStorage.setItem("token", token);
+        setShowLogin(false);
+
+        // If user logs in with a vendor or admin role, redirect them to the partner portal
+        if (user && (user.role === "vendor" || user.role === "admin")) {
+          localStorage.setItem("adminToken", token);
+          localStorage.setItem("adminRole", user.role);
+          localStorage.setItem("adminName", user.name);
+          navigate("/partner/dashboard");
+        }
+      } else {
+        alert(response.data.message);
+      }
+    } catch (error) {
+      console.error("Google Auth backend connection error:", error);
+      alert("Failed to authenticate with backend via Google.");
+    }
+  };
+
+  const handleGoogleError = () => {
+    console.error("Google Sign-In Error");
+    alert("Google Sign-In failed. Please try again.");
   };
 
   const onLogin = async (event) => {
@@ -114,6 +152,18 @@ const LoginPopup = ({ setShowLogin }) => {
         <button type="submit">
           {currState === "Sign Up" ? "Create account" : "Login"}
         </button>
+        
+        <div className="login-popup-divider">
+          <span>OR</span>
+        </div>
+        
+        <div className="google-login-container">
+          <GoogleLogin
+            onSuccess={handleGoogleSuccess}
+            onError={handleGoogleError}
+            useOneTap={false}
+          />
+        </div>
         <div className="login-popup-condition">
           <input type="checkbox" required />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>
