@@ -11,8 +11,9 @@ services:
   frontend:
     build:
       context: ./frontend
-    args:
-      VITE_API_URL: http://13.204.80.36:5000/api
+      args:
+        VITE_API_URL: http://13.204.80.36:5000/api
+
     container_name: frontend
     restart: always
     env_file:
