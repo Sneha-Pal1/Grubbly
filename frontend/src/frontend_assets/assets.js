@@ -1,81 +1,81 @@
-import catlogo from "./catlogo.png";
-import basket_icon from "./basket_icon.png";
-import logo from "./logo.png";
+// import catlogo from "./catlogo.png";
+import basket_icon from './basket_icon.png';
+import logo from './logo.png';
 // import header_img from "./header_img.png";
-import food_header from "./food_header.png";
-import search_icon from "./search_icon.png";
-import menu_1 from "./menu_1.png";
-import menu_rolls from "./menu_rolls.png";
-import menu_deserts from "./menu_deserts.png";
-import menu_sandwich from "./menu_sandwich.png";
-import menu_cake from "./menu_cake.png";
-import menu_veg from "./menu_veg.png";
-import menu_pasta from "./menu_pasta.png";
-import menu_noddles from "./menu_noddles.png";
-import menu_rice from "./menu_rice.png";
+import food_header from './food_header.png';
+import search_icon from './search_icon.png';
+import menu_1 from './menu_1.png';
+import menu_rolls from './menu_rolls.png';
+import menu_deserts from './menu_deserts.png';
+import menu_sandwich from './menu_sandwich.png';
+import menu_cake from './menu_cake.png';
+import menu_veg from './menu_veg.png';
+import menu_pasta from './menu_pasta.png';
+import menu_noddles from './menu_noddles.png';
+import menu_rice from './menu_rice.png';
 
-import add_icon_white from "./add_icon_white.png";
-import add_icon_green from "./add_icon_green.png";
-import remove_icon_red from "./remove_icon_red.png";
-import app_store from "./app_store.png";
-import play_store from "./play_store.png";
-import linkedin_icon from "./linkedin_icon.png";
-import facebook_icon from "./facebook_icon.png";
-import twitter_icon from "./twitter_icon.png";
-import cross_icon from "./cross_icon.png";
-import selector_icon from "./selector_icon.png";
-import rating_starts from "./rating_starts.png";
-import profile_icon from "./profile_icon.png";
-import bag_icon from "./bag_icon.png";
-import logout_icon from "./logout_icon.png";
-import parcel_icon from "./parcel_icon.png";
-import chicken_dum_biriyani from "./chicken_dum_biriyani.jpg";
-import chicken_fried_rice from "./chicken_fried_rice.jpg";
-import egg_noodles from "./egg_noodles.jpg";
-import egg_roll from "./egg_roll.jpg";
-import farfalle from "./farfalle.webp";
-import fruit_salad from "./fruit_salad.jpg";
-import greek_salad from "./greek_salad.jpg";
-import Grilled_chicken_sandwich from "./Grilled_chicken_sandwich.jpg";
-import Grilled_veg_sandwich from "./Grilled_veg_sandwich.jpg";
-import ramen from "./ramen.jpg";
-import AlfredoPasta from "./AlfredoPasta.png";
-import BlueberryLayerCake from "./BlueberryLayerCake.png";
-import BrownRiceBowl from "./BrownRiceBowl.png";
-import caeserSalad from "./caeserSalad.jpg";
-import cauliflowerChickpeaSalad from "./cauliflowerChickpeaSalad.png";
-import cheeseCake from "./CheeseCake.png";
-import chickenRoll from "./chickenRoll.png";
-import chickenSalad from "./chickenSalad.png";
-import creamCake from "./creamCake.png";
-import cupCake from "./cupcake.png";
-import grillSandwich from "./grillSandwich.png";
-import lasagnaRolls from "./lasagnaRolls.png";
-import linguine from "./linguine.png";
-import NoddleSoup from "./NoddleSoup.png";
-import penne from "./penne.png";
-import periperiRoll from "./periperiRoll.jpg";
-import pizzaRoll from "./pizzaRoll.png";
-import rajmaChawal from "./rajmaChawal.png";
-import rotiniPasta from "./rotiniPasta.png";
-import SpicyNoddle from "./SpicyNoddle.png";
-import StrawberryCheesecake from "./StrawberryCheesecake.png";
-import vanillaCake from "./vanillaCake.png";
-import veganSandwich from "./veganSandwich.jpg";
-import vegLeafySalad from "./vegLeafySalad.png";
-import vegSalad from "./vegSalad.png";
-import vegSandwich from "./vegSandwich.png";
-import vegNoodles from "./vegNoodles.png";
-import riceNoodles from "./riceNoodles.jpg";
-import vegBiryani from "./vegBiryani.jpg";
-import vegFriedRice from "./vegFriedRice.jpg";
-import vegPulao from "./vegPulao.jpg";
-import sawarma from "./sawarma.jpg";
-import BerryRippleIceCream from "./BerryRippleIceCream.png";
-import fruitIceCream from "./fruitIceCream.png";
-import caramelToppedIceCream from "./caramelToppedIceCream.jpg";
+import add_icon_white from './add_icon_white.png';
+import add_icon_green from './add_icon_green.png';
+import remove_icon_red from './remove_icon_red.png';
+import app_store from './app_store.png';
+import play_store from './play_store.png';
+import linkedin_icon from './linkedin_icon.png';
+import facebook_icon from './facebook_icon.png';
+import twitter_icon from './twitter_icon.png';
+import cross_icon from './cross_icon.png';
+import selector_icon from './selector_icon.png';
+import rating_starts from './rating_starts.png';
+import profile_icon from './profile_icon.png';
+import bag_icon from './bag_icon.png';
+import logout_icon from './logout_icon.png';
+import parcel_icon from './parcel_icon.png';
+import chicken_dum_biriyani from './chicken_dum_biriyani.jpg';
+import chicken_fried_rice from './chicken_fried_rice.jpg';
+import egg_noodles from './egg_noodles.jpg';
+import egg_roll from './egg_roll.jpg';
+import farfalle from './farfalle.webp';
+import fruit_salad from './fruit_salad.jpg';
+import greek_salad from './greek_salad.jpg';
+import Grilled_chicken_sandwich from './Grilled_chicken_sandwich.jpg';
+import Grilled_veg_sandwich from './Grilled_veg_sandwich.jpg';
+import ramen from './ramen.jpg';
+import AlfredoPasta from './AlfredoPasta.png';
+import BlueberryLayerCake from './BlueberryLayerCake.png';
+import BrownRiceBowl from './BrownRiceBowl.png';
+import caeserSalad from './caeserSalad.jpg';
+import cauliflowerChickpeaSalad from './cauliflowerChickpeaSalad.png';
+import cheeseCake from './CheeseCake.png';
+import chickenRoll from './chickenRoll.png';
+import chickenSalad from './chickenSalad.png';
+import creamCake from './creamCake.png';
+import cupCake from './cupcake.png';
+import grillSandwich from './grillSandwich.png';
+import lasagnaRolls from './lasagnaRolls.png';
+import linguine from './linguine.png';
+import NoddleSoup from './NoddleSoup.png';
+import penne from './penne.png';
+import periperiRoll from './periperiRoll.jpg';
+import pizzaRoll from './pizzaRoll.png';
+import rajmaChawal from './rajmaChawal.png';
+import rotiniPasta from './rotiniPasta.png';
+import SpicyNoddle from './SpicyNoddle.png';
+import StrawberryCheesecake from './StrawberryCheesecake.png';
+import vanillaCake from './vanillaCake.png';
+import veganSandwich from './veganSandwich.jpg';
+import vegLeafySalad from './vegLeafySalad.png';
+import vegSalad from './vegSalad.png';
+import vegSandwich from './vegSandwich.png';
+import vegNoodles from './vegNoodles.png';
+import riceNoodles from './riceNoodles.jpg';
+import vegBiryani from './vegBiryani.jpg';
+import vegFriedRice from './vegFriedRice.jpg';
+import vegPulao from './vegPulao.jpg';
+import sawarma from './sawarma.jpg';
+import BerryRippleIceCream from './BerryRippleIceCream.png';
+import fruitIceCream from './fruitIceCream.png';
+import caramelToppedIceCream from './caramelToppedIceCream.jpg';
 // import kulfi from "kulfi.png";
-import vanillaIceCream from "./vanillaIceCream.png";
+import vanillaIceCream from './vanillaIceCream.png';
 
 export const assets = {
   logo,
@@ -131,7 +131,6 @@ export const assets = {
   vanillaCake,
   veganSandwich,
   vegSalad,
-  veganSandwich,
   vegLeafySalad,
   BerryRippleIceCream,
   fruitIceCream,
@@ -142,412 +141,371 @@ export const assets = {
 
 export const menu_list = [
   {
-    menu_name: "Salad",
+    menu_name: 'Salad',
     menu_image: menu_1,
   },
   {
-    menu_name: "Rolls",
+    menu_name: 'Rolls',
     menu_image: menu_rolls,
   },
   {
-    menu_name: "Desserts",
+    menu_name: 'Desserts',
     menu_image: menu_deserts,
   },
   {
-    menu_name: "Sandwich",
+    menu_name: 'Sandwich',
     menu_image: menu_sandwich,
   },
   {
-    menu_name: "Cake",
+    menu_name: 'Cake',
     menu_image: menu_cake,
   },
   {
-    menu_name: "Pure Veg",
+    menu_name: 'Pure Veg',
     menu_image: menu_veg,
   },
   {
-    menu_name: "Pasta",
+    menu_name: 'Pasta',
     menu_image: menu_pasta,
   },
   {
-    menu_name: "Noodles",
+    menu_name: 'Noodles',
     menu_image: menu_noddles,
   },
   {
-    menu_name: "Rice Items",
+    menu_name: 'Rice Items',
     menu_image: menu_rice,
   },
 ];
 
 export const food_list = [
   {
-    _id: "1",
-    name: "Greek salad",
+    _id: '1',
+    name: 'Greek salad',
     image: greek_salad,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
   {
-    _id: "2",
-    name: "Veg salad",
+    _id: '2',
+    name: 'Veg salad',
     image: vegLeafySalad,
     price: 118,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
   {
-    _id: "3",
-    name: "Caeser Salad",
+    _id: '3',
+    name: 'Caeser Salad',
     image: caeserSalad,
     price: 116,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
   {
-    _id: "4",
-    name: "Chicken Salad",
+    _id: '4',
+    name: 'Chicken Salad',
     image: chickenSalad,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
   {
-    _id: "5",
-    name: "Fruit Salad",
+    _id: '5',
+    name: 'Fruit Salad',
     image: fruit_salad,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
   {
-    _id: "6",
-    name: "Chickpea Salad",
+    _id: '6',
+    name: 'Chickpea Salad',
     image: cauliflowerChickpeaSalad,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Salad",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Salad',
   },
 
   {
-    _id: "7",
-    name: "Lasagna Rolls",
+    _id: '7',
+    name: 'Lasagna Rolls',
     image: lasagnaRolls,
     price: 114,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "8",
-    name: "Peri Peri Rolls",
+    _id: '8',
+    name: 'Peri Peri Rolls',
     image: periperiRoll,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "9",
-    name: "Chicken Rolls",
+    _id: '9',
+    name: 'Chicken Rolls',
     image: chickenRoll,
     price: 120,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "10",
-    name: "Egg Rolls",
+    _id: '10',
+    name: 'Egg Rolls',
     image: egg_roll,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "11",
-    name: "sawarma",
+    _id: '11',
+    name: 'sawarma',
     image: sawarma,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "12",
-    name: "Pizza Rolls",
+    _id: '12',
+    name: 'Pizza Rolls',
     image: pizzaRoll,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rolls',
   },
   {
-    _id: "13",
-    name: "Berry Ripple Ice Cream",
+    _id: '13',
+    name: 'Berry Ripple Ice Cream',
     image: BerryRippleIceCream,
     price: 114,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Desserts",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Desserts',
   },
   {
-    _id: "14",
-    name: "Fruit Ice Cream",
+    _id: '14',
+    name: 'Fruit Ice Cream',
     image: fruitIceCream,
     price: 122,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Desserts",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Desserts',
   },
   {
-    _id: "15",
-    name: "Caramel Topped Ice Cream",
+    _id: '15',
+    name: 'Caramel Topped Ice Cream',
     image: caramelToppedIceCream,
     price: 110,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Desserts",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Desserts',
   },
   {
-    _id: "16",
-    name: "Vanilla Ice Cream",
+    _id: '16',
+    name: 'Vanilla Ice Cream',
     image: vanillaIceCream,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Desserts",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Desserts',
   },
   {
-    _id: "17",
-    name: "Veg Sandwich",
+    _id: '17',
+    name: 'Veg Sandwich',
     image: vegSandwich,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Sandwich',
   },
   {
-    _id: "18",
-    name: "Vegan Sandwich",
+    _id: '18',
+    name: 'Vegan Sandwich',
     image: veganSandwich,
     price: 118,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Sandwich',
   },
   {
-    _id: "19",
-    name: "Grilled Sandwich",
+    _id: '19',
+    name: 'Grilled Sandwich',
     image: grillSandwich,
     price: 116,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Sandwich',
   },
   {
-    _id: "20",
-    name: "Grilled Veg Sandwich",
+    _id: '20',
+    name: 'Grilled Veg Sandwich',
     image: Grilled_veg_sandwich,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Sandwich',
   },
   {
-    _id: "21",
-    name: "Grilled Chicken Sandwich",
+    _id: '21',
+    name: 'Grilled Chicken Sandwich',
     image: Grilled_chicken_sandwich,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Sandwich',
   },
   {
-    _id: "22",
-    name: "Cup Cake",
+    _id: '22',
+    name: 'Cup Cake',
     image: cupCake,
     price: 114,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Cake',
   },
   {
-    _id: "23",
-    name: "Bluberry Layered Cake",
+    _id: '23',
+    name: 'Bluberry Layered Cake',
     image: BlueberryLayerCake,
     price: 120,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Cake',
   },
   {
-    _id: "24",
-    name: "Cheese Cake",
+    _id: '24',
+    name: 'Cheese Cake',
     image: cheeseCake,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Cake',
   },
   {
-    _id: "25",
-    name: "Strawberry Cheese Cake",
+    _id: '25',
+    name: 'Strawberry Cheese Cake',
     image: StrawberryCheesecake,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Cake',
   },
   {
-    _id: "26",
-    name: "Vanilla Cake",
+    _id: '26',
+    name: 'Vanilla Cake',
     image: vanillaCake,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Cake",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Cake',
   },
   {
-    _id: "27",
-    name: "Veg Fried Rice ",
+    _id: '27',
+    name: 'Veg Fried Rice ',
     image: vegFriedRice,
     price: 114,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pure Veg',
   },
   {
-    _id: "28",
-    name: "Veg Biryani",
+    _id: '28',
+    name: 'Veg Biryani',
     image: vegBiryani,
     price: 122,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pure Veg',
   },
   {
-    _id: "29",
-    name: "Mix Veg Pulao",
+    _id: '29',
+    name: 'Mix Veg Pulao',
     image: vegPulao,
     price: 110,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pure Veg',
   },
   {
-    _id: "30",
-    name: "Chicken Dum Biryani",
+    _id: '30',
+    name: 'Chicken Dum Biryani',
     image: chicken_dum_biriyani,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rice Items",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rice Items',
   },
   {
-    _id: "31",
-    name: "Chicken Fried Rice",
+    _id: '31',
+    name: 'Chicken Fried Rice',
     image: chicken_fried_rice,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rice Items",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rice Items',
   },
   {
-    _id: "32",
-    name: "Brown Rice Bowl",
+    _id: '32',
+    name: 'Brown Rice Bowl',
     image: BrownRiceBowl,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Rice Items",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Rice Items',
   },
   {
-    _id: "33",
-    name: "Alfredo Pasta",
+    _id: '33',
+    name: 'Alfredo Pasta',
     image: AlfredoPasta,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pasta',
   },
   {
-    _id: "34",
-    name: "Farfalle Pasta",
+    _id: '34',
+    name: 'Farfalle Pasta',
     image: farfalle,
     price: 118,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pasta',
   },
   {
-    _id: "35",
-    name: "Penne Pasta",
+    _id: '35',
+    name: 'Penne Pasta',
     image: penne,
     price: 116,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pasta',
   },
   {
-    _id: "36",
-    name: "Rotini Pasta",
+    _id: '36',
+    name: 'Rotini Pasta',
     image: rotiniPasta,
     price: 124,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Pasta',
   },
   {
-    _id: "37",
-    name: "Soup Noodle",
+    _id: '37',
+    name: 'Soup Noodle',
     image: NoddleSoup,
     price: 114,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Noodles',
   },
   {
-    _id: "38",
-    name: "Rice Noodles",
+    _id: '38',
+    name: 'Rice Noodles',
     image: riceNoodles,
     price: 112,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Noodles',
   },
   {
-    _id: "39",
-    name: "Spicy Noodles",
+    _id: '39',
+    name: 'Spicy Noodles',
     image: SpicyNoddle,
     price: 120,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Noodles',
   },
   {
-    _id: "40",
-    name: "Cooked Noodles",
+    _id: '40',
+    name: 'Cooked Noodles',
     image: vegNoodles,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Noodles',
   },
   {
-    _id: "41",
-    name: "Ramen",
+    _id: '41',
+    name: 'Ramen',
     image: ramen,
     price: 115,
-    description:
-      "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles",
+    description: 'Food provides essential nutrients for overall health and well-being',
+    category: 'Noodles',
   },
 ];

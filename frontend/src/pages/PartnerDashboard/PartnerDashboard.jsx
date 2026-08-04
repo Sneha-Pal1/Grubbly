@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
-import "./PartnerDashboard.css";
+import React, { useCallback, useEffect, useState } from 'react';
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import './PartnerDashboard.css';
 
 const PartnerDashboard = ({ url, token, role }) => {
   const [orders, setOrders] = useState([]);
@@ -12,22 +12,22 @@ const PartnerDashboard = ({ url, token, role }) => {
   const getUserIdFromToken = (jwtToken) => {
     try {
       if (!jwtToken) return null;
-      const base64Url = jwtToken.split(".")[1];
-      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const base64Url = jwtToken.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const jsonPayload = decodeURIComponent(
         atob(base64)
-          .split("")
-          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-          .join("")
+          .split('')
+          .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+          .join(''),
       );
       return JSON.parse(jsonPayload).id;
     } catch (error) {
-      console.error("JWT decoding failed:", error);
+      console.error('JWT decoding failed:', error);
       return null;
     }
   };
 
-  const fetchDashboardData = async () => {
+  const fetchDashboardData = useCallback(async () => {
     try {
       setLoading(true);
       const headers = { token };
@@ -44,7 +44,7 @@ const PartnerDashboard = ({ url, token, role }) => {
       // 2. Fetch Food Items List
       // If the user is a Vendor, query only foods belonging to their vendorId
       let foodUrl = `${url}/api/food/list`;
-      if (role === "vendor") {
+      if (role === 'vendor') {
         const userId = getUserIdFromToken(token);
         if (userId) {
           foodUrl += `?vendorId=${userId}`;
@@ -56,21 +56,25 @@ const PartnerDashboard = ({ url, token, role }) => {
         setFoods(foodsRes.data.data);
       }
     } catch (error) {
-      console.error("Error loading dashboard metrics:", error);
-      toast.error("Failed to load dashboard metrics");
+      console.error('Error loading dashboard metrics:', error);
+      toast.error('Failed to load dashboard metrics');
     } finally {
       setLoading(false);
     }
-  };
+  }, [role, token, url]);
 
   useEffect(() => {
     if (token) {
       fetchDashboardData();
     }
-  }, [token, role]);
+  }, [fetchDashboardData, token]);
 
   if (loading) {
-    return <div style={{ padding: "30px", fontSize: "16px", fontFamily: "'Outfit', sans-serif" }}>Analyzing stats...</div>;
+    return (
+      <div style={{ padding: '30px', fontSize: '16px', fontFamily: "'Outfit', sans-serif" }}>
+        Analyzing stats...
+      </div>
+    );
   }
 
   // COMPUTE ANALYTICS METRICS
@@ -87,7 +91,8 @@ const PartnerDashboard = ({ url, token, role }) => {
     <div className="partner-dashboard-wrapper">
       <h2>Welcome back!</h2>
       <p className="dashboard-subtitle">
-        Here is what's happening with your kitchen today ({role === "admin" ? "Platform Admin" : "Kitchen Vendor"}).
+        Here is what's happening with your kitchen today (
+        {role === 'admin' ? 'Platform Admin' : 'Kitchen Vendor'}).
       </p>
 
       {/* METRICS METERS GRID */}
@@ -133,29 +138,29 @@ const PartnerDashboard = ({ url, token, role }) => {
               <tbody>
                 {orders.slice(0, 10).map((order) => (
                   <tr key={order._id}>
-                    <td style={{ fontWeight: 600, fontSize: "12px", color: "#666" }}>
+                    <td style={{ fontWeight: 600, fontSize: '12px', color: '#666' }}>
                       {order._id.substring(0, 8)}...
                     </td>
                     <td>
                       {order.address?.firstname} {order.address?.lastname}
                     </td>
                     <td>
-                      {order.items?.map((item) => `${item.name} x${item.quantity}`).join(", ")}
+                      {order.items?.map((item) => `${item.name} x${item.quantity}`).join(', ')}
                     </td>
                     <td>₹{order.amount}</td>
                     <td>
-                      <span className={`payment-tag ${order.payment ? "paid" : "cod"}`}>
-                        {order.payment ? "PAID" : "COD"}
+                      <span className={`payment-tag ${order.payment ? 'paid' : 'cod'}`}>
+                        {order.payment ? 'PAID' : 'COD'}
                       </span>
                     </td>
                     <td>
                       <span
                         className={`status-badge ${
-                          order.status === "Delivered"
-                            ? "delivered"
-                            : order.status === "Out For Delivery"
-                            ? "delivery"
-                            : "processing"
+                          order.status === 'Delivered'
+                            ? 'delivered'
+                            : order.status === 'Out For Delivery'
+                              ? 'delivery'
+                              : 'processing'
                         }`}
                       >
                         {order.status}
@@ -166,7 +171,9 @@ const PartnerDashboard = ({ url, token, role }) => {
               </tbody>
             </table>
           ) : (
-            <p style={{ color: "#777", textAlign: "center", padding: "20px 0" }}>No orders received yet.</p>
+            <p style={{ color: '#777', textAlign: 'center', padding: '20px 0' }}>
+              No orders received yet.
+            </p>
           )}
         </div>
       </div>

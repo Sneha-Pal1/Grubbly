@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import "./Cart.css";
-import { StoreContext } from "../context/StoreContext";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import './Cart.css';
+import { StoreContext } from '../context/StoreContext.js';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount, url } =
@@ -62,7 +62,7 @@ const Cart = () => {
             <b>Total</b>
             <b>₹{total}</b>
           </div>
-          <button onClick={() => navigate("/order")}>PROCEED TO CHECK</button>
+          <button onClick={() => navigate('/order')}>PROCEED TO CHECK</button>
         </div>
 
         {/* Promo Code Section */}

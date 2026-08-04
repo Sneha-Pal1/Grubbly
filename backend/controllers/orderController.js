@@ -1,7 +1,7 @@
-import orderModel from "../models/orderModel.js";
-import userModel from "../models/userModel.js";
-import Razorpay from "razorpay";
-import crypto from "crypto";
+import orderModel from '../models/orderModel.js';
+import userModel from '../models/userModel.js';
+import Razorpay from 'razorpay';
+import crypto from 'crypto';
 
 let razorpayInstance = null;
 
@@ -11,7 +11,7 @@ let razorpayInstance = null;
 const getRazorpayInstance = () => {
   if (!razorpayInstance) {
     if (!process.env.RAZORPAY_KEY_ID || !process.env.RAZORPAY_SECRET_KEY) {
-      throw new Error("Missing RAZORPAY_KEY_ID or RAZORPAY_SECRET_KEY in environment variables.");
+      throw new Error('Missing RAZORPAY_KEY_ID or RAZORPAY_SECRET_KEY in environment variables.');
     }
     razorpayInstance = new Razorpay({
       key_id: process.env.RAZORPAY_KEY_ID,
@@ -28,7 +28,7 @@ const getRazorpayInstance = () => {
 const placeOrder = async (req, res) => {
   try {
     const { userId, items, amount, address, coordinates, paymentMethod } = req.body;
-    console.log("📥 Incoming order placement request:", req.body);
+    console.log('📥 Incoming order placement request:', req.body);
 
     // Extract the vendorId from the first food item in the order to route it to the correct vendor
     const vendorId = items && items[0] ? items[0].vendorId : null;
@@ -41,23 +41,23 @@ const placeOrder = async (req, res) => {
       address,
       coordinates, // Store coordinates captured from the map
       vendorId,
-      status: "Food Processing", // Initial status
-      payment: paymentMethod === "cod" ? false : false, // Paid status starts as false for both
+      status: 'Food Processing', // Initial status
+      payment: paymentMethod === 'cod' ? false : false, // Paid status starts as false for both
     });
 
     await newOrder.save();
-    console.log("✅ Order saved in DB:", newOrder);
+    console.log('✅ Order saved in DB:', newOrder);
 
     // 1. CASH ON DELIVERY (COD) FLOW
-    if (paymentMethod === "cod") {
+    if (paymentMethod === 'cod') {
       // Clear the user's cart in the DB since order is placed
       await userModel.findByIdAndUpdate(userId, { cartData: {} });
 
       return res.json({
         success: true,
-        message: "Order placed successfully with Cash on Delivery",
+        message: 'Order placed successfully with Cash on Delivery',
         orderId: newOrder._id,
-        paymentMethod: "cod",
+        paymentMethod: 'cod',
       });
     }
 
@@ -65,12 +65,12 @@ const placeOrder = async (req, res) => {
     // Create a Razorpay Order receipt matching the MongoDB Order ID
     const options = {
       amount: amount * 100, // Razorpay amount must be in paise (e.g. ₹500 = 50000 paise)
-      currency: "INR",
+      currency: 'INR',
       receipt: String(newOrder._id),
     };
 
     const razorpayOrder = await getRazorpayInstance().orders.create(options);
-    console.log("💳 Razorpay Order Created:", razorpayOrder);
+    console.log('💳 Razorpay Order Created:', razorpayOrder);
 
     // Update order with the Razorpay Order ID for tracking signature validation
     newOrder.razorpayOrderId = razorpayOrder.id;
@@ -82,12 +82,11 @@ const placeOrder = async (req, res) => {
       razorpayOrder,
       key_id: process.env.RAZORPAY_KEY_ID,
       orderId: newOrder._id,
-      paymentMethod: "razorpay",
+      paymentMethod: 'razorpay',
     });
-
   } catch (error) {
-    console.error("❌ Order placement failed:", error);
-    res.status(500).json({ success: false, message: "Failed to place order: " + error.message });
+    console.error('❌ Order placement failed:', error);
+    res.status(500).json({ success: false, message: 'Failed to place order: ' + error.message });
   }
 };
 
@@ -97,15 +96,15 @@ const placeOrder = async (req, res) => {
  */
 const verifyOrder = async (req, res) => {
   const { orderId, razorpay_order_id, razorpay_payment_id, razorpay_signature } = req.body;
-  
+
   try {
     // Generate the expected signature according to Razorpay's hashing formula:
     // HMAC-SHA256(razorpay_order_id + "|" + razorpay_payment_id, key_secret)
-    const text = razorpay_order_id + "|" + razorpay_payment_id;
+    const text = razorpay_order_id + '|' + razorpay_payment_id;
     const expectedSignature = crypto
-      .createHmac("sha256", process.env.RAZORPAY_SECRET_KEY)
+      .createHmac('sha256', process.env.RAZORPAY_SECRET_KEY)
       .update(text)
-      .digest("hex");
+      .digest('hex');
 
     // Match signature to authenticate payment authenticity
     if (expectedSignature === razorpay_signature) {
@@ -120,25 +119,25 @@ const verifyOrder = async (req, res) => {
       // Clear the cart
       await userModel.findByIdAndUpdate(updatedOrder.userId, { cartData: {} });
 
-      console.log("💳 Razorpay Payment Verified Success for order:", orderId);
+      console.log('💳 Razorpay Payment Verified Success for order:', orderId);
       res.json({
         success: true,
-        message: "Payment successfully verified! Cart cleared.",
+        message: 'Payment successfully verified! Cart cleared.',
       });
     } else {
       // Signatures do not match! Cancel the transaction and delete the unpaid order record
       await orderModel.findByIdAndDelete(orderId);
-      console.warn("⚠️ Razorpay Signature Verification Failed. Order Deleted:", orderId);
+      console.warn('⚠️ Razorpay Signature Verification Failed. Order Deleted:', orderId);
       res.json({
         success: false,
-        message: "Security verification failed. Invalid signature.",
+        message: 'Security verification failed. Invalid signature.',
       });
     }
   } catch (error) {
-    console.error("❌ Verification error:", error);
+    console.error('❌ Verification error:', error);
     res.status(500).json({
       success: false,
-      message: "Server error during payment verification.",
+      message: 'Server error during payment verification.',
     });
   }
 };
@@ -152,9 +151,10 @@ const userOrders = async (req, res) => {
       data: orders,
     });
   } catch (error) {
+    console.error(error);
     res.json({
       success: false,
-      message: "Error fetching user orders.",
+      message: 'Error fetching user orders.',
     });
   }
 };
@@ -165,7 +165,7 @@ const listOrders = async (req, res) => {
     // If the caller is a Vendor, only show orders belonging to their vendorId.
     // If Admin, show all orders.
     let filter = {};
-    if (req.body.userRole === "vendor") {
+    if (req.body.userRole === 'vendor') {
       filter = { vendorId: req.body.userId };
     }
 
@@ -175,10 +175,10 @@ const listOrders = async (req, res) => {
       data: orders,
     });
   } catch (error) {
-    console.error("Error listing orders:", error);
+    console.error('Error listing orders:', error);
     res.json({
       success: false,
-      message: "Failed to list orders.",
+      message: 'Failed to list orders.',
     });
   }
 };
@@ -186,31 +186,37 @@ const listOrders = async (req, res) => {
 // Update order status (with WebSockets triggered to push real-time updates to customer)
 const updateStatus = async (req, res) => {
   try {
-    const updatedOrder = await orderModel.findByIdAndUpdate(req.body.orderId, {
-      status: req.body.status,
-    }, { new: true });
-    
+    const updatedOrder = await orderModel.findByIdAndUpdate(
+      req.body.orderId,
+      {
+        status: req.body.status,
+      },
+      { new: true },
+    );
+
     // Retrieve the Socket.io instance from the Express app context
-    const io = req.app.get("io");
+    const io = req.app.get('io');
     if (io) {
       // Broadcast the new status to the client room: order_<id>
-      io.to(`order_${req.body.orderId}`).emit("status_update", {
+      io.to(`order_${req.body.orderId}`).emit('status_update', {
         orderId: req.body.orderId,
         status: req.body.status,
       });
-      console.log(`📣 WebSocket broadcast: Order ${req.body.orderId} updated to "${req.body.status}"`);
+      console.log(
+        `📣 WebSocket broadcast: Order ${req.body.orderId} updated to "${req.body.status}"`,
+      );
     }
 
     res.json({
       success: true,
-      message: "Status Updated",
+      message: 'Status Updated',
       data: updatedOrder,
     });
   } catch (error) {
     console.log(error);
     res.json({
       success: false,
-      message: "Error updating order status.",
+      message: 'Error updating order status.',
     });
   }
 };
@@ -220,18 +226,18 @@ const getOrderDetails = async (req, res) => {
   try {
     const order = await orderModel.findById(req.params.orderId);
     if (!order) {
-      return res.json({ success: false, message: "Order not found" });
+      return res.json({ success: false, message: 'Order not found' });
     }
 
     // Security: Validate that the user requesting details owns the order, or is a vendor/admin
     if (
-      req.body.userRole !== "admin" &&
-      req.body.userRole !== "vendor" &&
+      req.body.userRole !== 'admin' &&
+      req.body.userRole !== 'vendor' &&
       order.userId !== req.body.userId
     ) {
       return res.status(403).json({
         success: false,
-        message: "Forbidden: Not authorized to view this order.",
+        message: 'Forbidden: Not authorized to view this order.',
       });
     }
 
@@ -240,13 +246,12 @@ const getOrderDetails = async (req, res) => {
       data: order,
     });
   } catch (error) {
-    console.error("Error fetching order details:", error);
+    console.error('Error fetching order details:', error);
     res.status(500).json({
       success: false,
-      message: "Server error while fetching order details.",
+      message: 'Server error while fetching order details.',
     });
   }
 };
 
 export { placeOrder, verifyOrder, userOrders, listOrders, updateStatus, getOrderDetails };
-

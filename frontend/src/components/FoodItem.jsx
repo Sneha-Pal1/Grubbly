@@ -1,24 +1,19 @@
-import React, { useContext } from "react";
-import "./FoodItem.css";
-import rating_starts from "../frontend_assets/rating_starts.png";
-import add_icon_white from "../frontend_assets/add_icon_white.png";
-import remove_icon_red from "../frontend_assets/remove_icon_red.png";
-import add_icon_green from "../frontend_assets/add_icon_green.png";
-import { StoreContext } from "../context/StoreContext";
+import React, { useContext } from 'react';
+import './FoodItem.css';
+import rating_starts from '../frontend_assets/rating_starts.png';
+import add_icon_white from '../frontend_assets/add_icon_white.png';
+import remove_icon_red from '../frontend_assets/remove_icon_red.png';
+import add_icon_green from '../frontend_assets/add_icon_green.png';
+import { StoreContext } from '../context/StoreContext.js';
 
 const FoodItem = ({ id, name, price, description, image }) => {
-  const { cartItems, addToCart, removeFromCart, url } =
-    useContext(StoreContext);
+  const { cartItems, addToCart, removeFromCart, url } = useContext(StoreContext);
 
   return (
     <div className="food-item">
       {/* Image Section */}
       <div className="food-item-img-container">
-        <img
-          className="food-item-image"
-          src={url + "/images/" + image}
-          alt={name}
-        />
+        <img className="food-item-image" src={url + '/images/' + image} alt={name} />
 
         {/* Add/Remove Button */}
         {!cartItems[id] ? (
@@ -30,11 +25,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
           />
         ) : (
           <div className="food-item-counter">
-            <img
-              onClick={() => removeFromCart(id)}
-              src={remove_icon_red}
-              alt="Remove"
-            />
+            <img onClick={() => removeFromCart(id)} src={remove_icon_red} alt="Remove" />
             <p>{cartItems[id]}</p>
             <img onClick={() => addToCart(id)} src={add_icon_green} alt="Add" />
           </div>

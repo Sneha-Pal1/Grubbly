@@ -1,39 +1,35 @@
-import React, { useEffect, useState } from "react";
-import "./MyOrders.css";
-import { useContext } from "react";
-import { StoreContext } from "../context/StoreContext";
-import axios from "axios";
-import parcel_icon from "../frontend_assets/parcel_icon.png";
-import { useNavigate } from "react-router-dom"; // Import navigation hook to route to track order page
+import React, { useCallback, useEffect, useState } from 'react';
+import './MyOrders.css';
+import { useContext } from 'react';
+import { StoreContext } from '../context/StoreContext.js';
+import axios from 'axios';
+import parcel_icon from '../frontend_assets/parcel_icon.png';
+import { useNavigate } from 'react-router-dom'; // Import navigation hook to route to track order page
 
 const MyOrders = () => {
   const { url, token } = useContext(StoreContext);
   const [data, setData] = useState([]);
   const navigate = useNavigate(); // Instantiate navigate controller
 
-  const fetchOrders = async () => {
+  const fetchOrders = useCallback(async () => {
     try {
-      const response = await axios.post(
-        url + "/api/order/userorders",
-        {},
-        { headers: { token } }
-      );
+      const response = await axios.post(url + '/api/order/userorders', {}, { headers: { token } });
       if (response.data.success) {
         setData(response.data.data);
         console.log(response.data.data);
       } else {
-        console.error("Failed to fetch orders:", response.data.message);
+        console.error('Failed to fetch orders:', response.data.message);
       }
     } catch (error) {
-      console.error("Error fetching orders:", error);
+      console.error('Error fetching orders:', error);
     }
-  };
+  }, [token, url]);
 
   useEffect(() => {
     if (token) {
       fetchOrders();
     }
-  }, [token]);
+  }, [fetchOrders, token]);
 
   return (
     <div className="my-orders">
@@ -47,12 +43,12 @@ const MyOrders = () => {
                 {order.items
                   .map((item, itemIndex) => {
                     if (itemIndex === order.items.length - 1) {
-                      return item.name + " x " + item.quantity;
+                      return item.name + ' x ' + item.quantity;
                     } else {
-                      return item.name + " x " + item.quantity + ", ";
+                      return item.name + ' x ' + item.quantity + ', ';
                     }
                   })
-                  .join("")}
+                  .join('')}
               </p>
               <p>₹{order.amount}.00</p>
               <p>Items: {order.items.length}</p>
@@ -70,4 +66,3 @@ const MyOrders = () => {
 };
 
 export default MyOrders;
-

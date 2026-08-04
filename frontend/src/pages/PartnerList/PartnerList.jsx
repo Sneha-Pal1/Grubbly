@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import "./PartnerList.css";
-import axios from "axios";
-import { toast } from "react-toastify";
+import React, { useCallback, useEffect, useState } from 'react';
+import './PartnerList.css';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const PartnerList = ({ url, token, role }) => {
   const [list, setList] = useState([]);
@@ -10,26 +10,26 @@ const PartnerList = ({ url, token, role }) => {
   const getUserIdFromToken = (jwtToken) => {
     try {
       if (!jwtToken) return null;
-      const base64Url = jwtToken.split(".")[1];
-      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
+      const base64Url = jwtToken.split('.')[1];
+      const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
       const jsonPayload = decodeURIComponent(
         atob(base64)
-          .split("")
-          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-          .join("")
+          .split('')
+          .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+          .join(''),
       );
       return JSON.parse(jsonPayload).id;
     } catch (error) {
-      console.error("JWT decoding failed:", error);
+      console.error('JWT decoding failed:', error);
       return null;
     }
   };
 
-  const fetchList = async () => {
+  const fetchList = useCallback(async () => {
     try {
       // Build list URL (Vendor lists only their own items; Admin lists everything)
       let listUrl = `${url}/api/food/list`;
-      if (role === "vendor") {
+      if (role === 'vendor') {
         const userId = getUserIdFromToken(token);
         if (userId) {
           listUrl += `?vendorId=${userId}`;
@@ -40,13 +40,13 @@ const PartnerList = ({ url, token, role }) => {
       if (response.data.success) {
         setList(response.data.data);
       } else {
-        toast.error("Error fetching food items");
+        toast.error('Error fetching food items');
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to connect to the server.");
+      toast.error('Failed to connect to the server.');
     }
-  };
+  }, [role, token, url]);
 
   const removeFood = async (foodId) => {
     try {
@@ -54,7 +54,7 @@ const PartnerList = ({ url, token, role }) => {
       const response = await axios.post(
         `${url}/api/food/remove`,
         { id: foodId },
-        { headers: { token } }
+        { headers: { token } },
       );
       await fetchList();
       if (response.data.success) {
@@ -64,7 +64,7 @@ const PartnerList = ({ url, token, role }) => {
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to remove food item");
+      toast.error('Failed to remove food item');
     }
   };
 
@@ -74,7 +74,7 @@ const PartnerList = ({ url, token, role }) => {
       const response = await axios.post(
         `${url}/api/food/toggle-stock`,
         { id: foodId },
-        { headers: { token } }
+        { headers: { token } },
       );
       if (response.data.success) {
         toast.success(response.data.message);
@@ -84,13 +84,13 @@ const PartnerList = ({ url, token, role }) => {
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to update stock status");
+      toast.error('Failed to update stock status');
     }
   };
 
   useEffect(() => {
     fetchList();
-  }, [token, role]);
+  }, [fetchList]);
 
   return (
     <div className="partner-list flex-col">
@@ -116,18 +116,18 @@ const PartnerList = ({ url, token, role }) => {
                 <button
                   onClick={() => toggleStock(item._id)}
                   style={{
-                    backgroundColor: item.inStock ? "#d4edda" : "#f8d7da",
-                    color: item.inStock ? "#155724" : "#721c24",
-                    border: "none",
-                    padding: "6px 10px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "12px",
+                    backgroundColor: item.inStock ? '#d4edda' : '#f8d7da',
+                    color: item.inStock ? '#155724' : '#721c24',
+                    border: 'none',
+                    padding: '6px 10px',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '12px',
                     fontWeight: 600,
-                    fontFamily: "'Outfit', sans-serif"
+                    fontFamily: "'Outfit', sans-serif",
                   }}
                 >
-                  {item.inStock ? "In Stock" : "Out of Stock"}
+                  {item.inStock ? 'In Stock' : 'Out of Stock'}
                 </button>
               </div>
               <p onClick={() => removeFood(item._id)} className="cursor">

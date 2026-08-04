@@ -1,12 +1,11 @@
-import { createContext, useState, useEffect } from "react";
-import axios from "axios";
-
-export const StoreContext = createContext(null);
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { StoreContext } from './StoreContext.js';
 
 const StoreContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = "https://grubbly-backend.onrender.com";
-  const [token, setToken] = useState("");
+  const url = 'https://grubbly-backend.onrender.com';
+  const [token, setToken] = useState('');
   const [food_list, setFoodList] = useState([]);
 
   const addToCart = async (itemId) => {
@@ -16,21 +15,13 @@ const StoreContextProvider = (props) => {
       setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
     }
     if (token) {
-      await axios.post(
-        url + "/api/cart/add",
-        { itemId },
-        { headers: { token } }
-      );
+      await axios.post(url + '/api/cart/add', { itemId }, { headers: { token } });
     }
   };
   const removeFromCart = async (itemId) => {
     setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     if (token) {
-      await axios.post(
-        url + "/api/cart/remove",
-        { itemId },
-        { headers: { token } }
-      );
+      await axios.post(url + '/api/cart/remove', { itemId }, { headers: { token } });
     }
   };
 
@@ -45,15 +36,11 @@ const StoreContextProvider = (props) => {
     return totalAmount;
   };
   const fetchFoodList = async () => {
-    const response = await axios.get(url + "/api/food/list");
+    const response = await axios.get(url + '/api/food/list');
     setFoodList(response.data.data);
   };
   const loadCartData = async (token) => {
-    const response = await axios.post(
-      url + "/api/cart/get",
-      {},
-      { headers: { token } }
-    );
+    const response = await axios.post(url + '/api/cart/get', {}, { headers: { token } });
     setCartItems(response.data.cartData);
   };
 
@@ -64,9 +51,9 @@ const StoreContextProvider = (props) => {
   useEffect(() => {
     async function loadData() {
       await fetchFoodList();
-      if (localStorage.getItem("token")) {
-        setToken(localStorage.getItem("token"));
-        await loadCartData(localStorage.getItem("token"));
+      if (localStorage.getItem('token')) {
+        setToken(localStorage.getItem('token'));
+        await loadCartData(localStorage.getItem('token'));
       }
     }
     loadData();
@@ -83,10 +70,6 @@ const StoreContextProvider = (props) => {
     token,
     setToken,
   };
-  return (
-    <StoreContext.Provider value={contextValue}>
-      {props.children}
-    </StoreContext.Provider>
-  );
+  return <StoreContext.Provider value={contextValue}>{props.children}</StoreContext.Provider>;
 };
 export default StoreContextProvider;
