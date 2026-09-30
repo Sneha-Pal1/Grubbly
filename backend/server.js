@@ -49,6 +49,10 @@ app.get("/", (req, res) => {
   res.send("API Working");
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "UP", uptime: process.uptime(), timestamp: new Date() });
+});
+
 // Socket.io Connection Handler
 io.on("connection", (socket) => {
   console.log(`🔌 New WebSocket client connected: ${socket.id}`);
