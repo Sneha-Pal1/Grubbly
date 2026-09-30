@@ -13,7 +13,7 @@ import orderRouter from "./routes/orderRoute.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // Wrap the Express app inside a standard Node HTTP server.
 // This is necessary because Socket.io runs on top of raw HTTP protocols.
