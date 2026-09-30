@@ -130,6 +130,14 @@ jobs:
             git fetch --all
             git reset --hard origin/master || git reset --hard origin/main
 
+            echo "Stopping existing conflicting containers..."
+            if command -v docker-compose &> /dev/null; then
+              docker-compose down --remove-orphans || true
+            else
+              docker compose down --remove-orphans || true
+            fi
+            docker rm -f backend frontend || true
+
             echo "Deploying application containers..."
             if command -v docker-compose &> /dev/null; then
               docker-compose up -d --build
