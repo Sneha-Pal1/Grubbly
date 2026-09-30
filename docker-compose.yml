@@ -4,7 +4,8 @@ services:
     container_name: backend
     restart: always
     env_file:
-      - ./backend/.env
+      - path: ./backend/.env
+        required: false
     ports:
       - "5000:5000"
     healthcheck:
@@ -21,7 +22,8 @@ services:
     container_name: frontend
     restart: always
     env_file:
-      - ./frontend/.env
+      - path: ./frontend/.env
+        required: false
     ports:
       - "80:80"
       - "5173:80"
