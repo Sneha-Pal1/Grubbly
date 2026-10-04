@@ -9,7 +9,8 @@ import userModel from "../models/userModel.js";
 export const authorizeRoles = (...roles) => {
   return async (req, res, next) => {
     try {
-      const { userId, userRole } = req.body;
+      const userId = req.userId || (req.body && req.body.userId);
+      const userRole = req.userRole || (req.body && req.body.userRole);
 
       if (!userId) {
         return res.status(401).json({

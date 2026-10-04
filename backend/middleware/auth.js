@@ -19,9 +19,11 @@ const authMiddleware = async (req, res, next) => {
       req.body = {};
     }
     
-    // Attach the user ID and user role to the request body
+    // Attach the user ID and user role to both req and req.body
+    req.userId = token_decode.id;
+    req.userRole = token_decode.role;
     req.body.userId = token_decode.id;
-    req.body.userRole = token_decode.role; // The role is signed into the JWT during registration/login
+    req.body.userRole = token_decode.role;
     
     next(); // Pass control to the next middleware or controller
   } catch (error) {

@@ -12,15 +12,16 @@ const addFood = async (req, res) => {
   }
 
   let image_filename = `${req.file.filename}`;
+  const vendorId = req.userId || (req.body && req.body.userId);
 
-  // Create a new Food record. Attach the vendorId from req.body.userId (populated by authMiddleware)
+  // Create a new Food record. Attach the vendorId from req.userId or req.body.userId
   const food = new foodModel({
     name: req.body.name,
     description: req.body.description,
     price: req.body.price,
     category: req.body.category,
     image: image_filename,
-    vendorId: req.body.userId, // Automatically link the food to the logged-in vendor
+    vendorId: vendorId, // Automatically link the food to the logged-in vendor
   });
 
   try {

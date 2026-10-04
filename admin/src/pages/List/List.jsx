@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 
 const List = ({ url, token, role }) => {
   const [List, setList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   // Helper function to decode JWT client-side without external dependencies
   const getUserIdFromToken = (jwtToken) => {
@@ -27,6 +29,9 @@ const List = ({ url, token, role }) => {
 
   const fetchList = async () => {
     try {
+      setLoading(true);
+      setError(null);
+
       // Build list URL (Vendor lists only their own items; Admin lists everything)
       let listUrl = `${url}/api/food/list`;
       if (role === "vendor") {
@@ -41,10 +46,17 @@ const List = ({ url, token, role }) => {
         setList(response.data.data);
       } else {
         toast.error("Error fetching food items");
+        setError("Could not load items from server.");
       }
     } catch (err) {
       console.error(err);
-      toast.error("Failed to connect to the server.");
+      // Show a friendly error instead of a blank page / crash
+      setError(
+        "Failed to connect to the server. The backend may be starting up — please wait a moment and try again."
+      );
+      toast.error("Connection failed. Click 'Retry' to try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -92,6 +104,54 @@ const List = ({ url, token, role }) => {
     fetchList();
   }, [token, role]);
 
+  // --- Render States ---
+
+  if (loading) {
+    return (
+      <div className="list add flex-col">
+        <p>All Foods List</p>
+        <div style={{ textAlign: "center", padding: "40px", color: "#888", fontSize: "15px" }}>
+          ⏳ Loading food items...
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="list add flex-col">
+        <p>All Foods List</p>
+        <div
+          style={{
+            textAlign: "center",
+            padding: "40px",
+            color: "#c0392b",
+            fontSize: "15px",
+            lineHeight: "1.8",
+          }}
+        >
+          <p>⚠️ {error}</p>
+          <button
+            onClick={fetchList}
+            style={{
+              marginTop: "16px",
+              padding: "10px 24px",
+              background: "#ff6347",
+              color: "#fff",
+              border: "none",
+              borderRadius: "6px",
+              cursor: "pointer",
+              fontSize: "14px",
+              fontWeight: 600,
+            }}
+          >
+            🔄 Retry
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="list add flex-col">
       <p>All Foods List</p>
@@ -104,41 +164,54 @@ const List = ({ url, token, role }) => {
           <b>Stock Status</b>
           <b>Action</b>
         </div>
-        {List.map((item, index) => {
-          return (
-            <div key={index} className="list-table-format">
-              <img src={`${url}/images/` + item.image} alt="" />
-              <p>{item.name}</p>
-              <p>{item.category}</p>
-              <p>₹{item.price}</p>
-              {/* Interactive stock availability toggler */}
-              <div>
-                <button
-                  onClick={() => toggleStock(item._id)}
-                  style={{
-                    backgroundColor: item.inStock ? "#d4edda" : "#f8d7da",
-                    color: item.inStock ? "#155724" : "#721c24",
-                    border: "none",
-                    padding: "6px 10px",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "12px",
-                    fontWeight: 600,
-                  }}
-                >
-                  {item.inStock ? "In Stock" : "Out of Stock"}
-                </button>
+
+        {List.length === 0 ? (
+          <div
+            style={{
+              textAlign: "center",
+              padding: "40px",
+              color: "#888",
+              fontSize: "15px",
+            }}
+          >
+            📭 No food items found. Add some from the <strong>Add Items</strong> page.
+          </div>
+        ) : (
+          List.map((item, index) => {
+            return (
+              <div key={index} className="list-table-format">
+                <img src={`${url}/images/` + item.image} alt="" />
+                <p>{item.name}</p>
+                <p>{item.category}</p>
+                <p>₹{item.price}</p>
+                {/* Interactive stock availability toggler */}
+                <div>
+                  <button
+                    onClick={() => toggleStock(item._id)}
+                    style={{
+                      backgroundColor: item.inStock ? "#d4edda" : "#f8d7da",
+                      color: item.inStock ? "#155724" : "#721c24",
+                      border: "none",
+                      padding: "6px 10px",
+                      borderRadius: "4px",
+                      cursor: "pointer",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {item.inStock ? "In Stock" : "Out of Stock"}
+                  </button>
+                </div>
+                <p onClick={() => removeFood(item._id)} className="cursor">
+                  X
+                </p>
               </div>
-              <p onClick={() => removeFood(item._id)} className="cursor">
-                X
-              </p>
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
     </div>
   );
 };
 
 export default List;
-
