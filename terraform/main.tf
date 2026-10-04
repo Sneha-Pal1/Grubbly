@@ -96,7 +96,78 @@ resource "aws_instance" "web_server" {
   }
 }
 
+# AWS S3 Bucket for Food Media Storage
+resource "aws_s3_bucket" "media_bucket" {
+  bucket        = "grubbly-media-storage-bucket"
+  force_destroy = true
+
+  tags = {
+    Name        = "Grubbly-Media-Bucket"
+    Environment = "production"
+  }
+}
+
+# S3 Public Access Block Configuration
+resource "aws_s3_bucket_public_access_block" "media_bucket_access" {
+  bucket = aws_s3_bucket.media_bucket.id
+
+  block_public_acls       = false
+  block_public_policy     = false
+  ignore_public_acls      = false
+  restrict_public_buckets = false
+}
+
+# AWS CloudFront CDN Distribution for High-Speed Image Delivery
+resource "aws_cloudfront_distribution" "cdn" {
+  origin {
+    domain_name = aws_s3_bucket.media_bucket.bucket_regional_domain_name
+    origin_id   = "S3-Grubbly-Media"
+  }
+
+  enabled             = true
+  is_ipv6_enabled     = true
+  default_root_object = "index.html"
+
+  default_cache_behavior {
+    allowed_methods  = ["GET", "HEAD"]
+    cached_methods   = ["GET", "HEAD"]
+    target_origin_id = "S3-Grubbly-Media"
+
+    forwarded_values {
+      query_string = false
+      cookies {
+        forward = "none"
+      }
+    }
+
+    viewer_protocol_policy = "redirect-to-https"
+    min_ttl                = 0
+    default_ttl            = 86400
+    max_ttl                = 31536000
+  }
+
+  restrictions {
+    geo_restriction {
+      restriction_type = "none"
+    }
+  }
+
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
+  tags = {
+    Name        = "Grubbly-CloudFront-CDN"
+    Environment = "production"
+  }
+}
+
 output "instance_public_ip" {
   value       = aws_instance.web_server.public_ip
   description = "Public IP address of the newly provisioned EC2 instance"
+}
+
+output "cloudfront_domain_name" {
+  value       = aws_cloudfront_distribution.cdn.domain_name
+  description = "CloudFront CDN domain URL for media distribution"
 }
