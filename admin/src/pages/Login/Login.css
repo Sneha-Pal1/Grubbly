@@ -64,6 +64,33 @@
   box-sizing: border-box;
 }
 
+.password-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.password-input-wrapper input {
+  padding-right: 40px;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  user-select: none;
+  transition: opacity 0.2s ease;
+}
+
+.password-toggle-icon:hover {
+  opacity: 0.8;
+}
+
 .login-button {
   background-color: #ff6347;
   color: white;
